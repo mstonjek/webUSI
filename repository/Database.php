@@ -39,31 +39,15 @@ class Database
         $stmt = $this->query($query, $params);
         $hashedPassword = $stmt->fetchColumn(2);
 
-        if (!$hashedPassword) {
-            return false; // User not found
-        }
-
-        // Verify the password
-        if (password_verify($password, $hashedPassword)) {
-            return true; // Passwords match, authentication successful
-        } else {
-            return false; // Passwords don't match, authentication failed
-        }
+        return $hashedPassword && password_verify($password, $hashedPassword);
     }
 
-    public function getEventsForHomepage(): array
+    public function getAllEvents(): array
     {
-        $query = "SELECT * FROM `events` ORDER BY `date` DESC LIMIT 2";
-        $stmt = $this->query($query, null);
-        $events = $stmt->fetchAll();
-        return $events;
-    }
+        $query = "SELECT * FROM usi_events ORDER BY date DESC";
+        $stmt = $this->query($query);
+        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    public function getAllEvents()
-    {
-        $query = "SELECT * FROM `events` ORDER BY `date` DESC";
-        $stmt = $this->query($query, null);
-        $events = $stmt->fetchAll();
         return $events;
     }
 
