@@ -4,7 +4,7 @@
     use PDO;
     use PDOException;
 
-    require_once "config/config.php";
+    require_once "../config/config.php";
 class Database
 {
     private $pdo;
@@ -12,7 +12,7 @@ class Database
     public function __construct() {
         global $config;
 
-        $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4";
+        $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']}";
         $username = $config['db_user'];
         $password = $config['db_pass'];
 
@@ -31,7 +31,7 @@ class Database
 
     public function authenticateUser(string $username, string $password): bool
     {
-        $query = "SELECT * FROM `users` WHERE `username` = :username AND `password` = :password";
+        $query = "SELECT * FROM `user` WHERE `username` = :username AND `password` = :password";
         $params = [
             "username" => $username,
             "password" => $password
