@@ -531,6 +531,9 @@ body {
     .logo {
         fill: $darkOrange;
     }
+    .back_button {
+        background-color: $darkOrange;
+    }
 
     body {
         background-color: $pennLight;
@@ -594,6 +597,15 @@ body {
         background-color: $pennLight;
 
         h1,
+        p {
+            color: $baby !important;
+        }
+    }
+
+    main.detail-skoly {
+        h1 {
+            color: $darkOrange !important;
+        }
         p {
             color: $baby !important;
         }
