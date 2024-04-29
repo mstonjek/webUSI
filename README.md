@@ -20,7 +20,7 @@ Následující kroky vysvětlují, jak spustit tento projekt na vašem lokální
 
 - Spusťte XAMPP Control Panel a klikněte na tlačítko `Start` vedle `Apache` a `MySQL`. To spustí Apache HTTP server a MySQL databázový server na vašem počítači.
 
-### 4. Import databáze - Zatím ve vývoji :D
+### 4. Import databáze - Zatím ve vývoji
 
 - Otevřete webový prohlížeč a přejděte na adresu `http://localhost/phpmyadmin`.
 - V sekci `Databases` vytvořte novou databázi s názvem `usi_database`.
