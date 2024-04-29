@@ -6,6 +6,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a#logo {
   margin-top: 16px;
   width: 94px;
@@ -500,8 +504,13 @@ body footer div:nth-child(3) span.highlight {
   main.o-nas p {
     color: #FFFDF9 !important;
   }
+  main.detail-skoly h1 {
+    color: #FF8800 !important;
+  }
+  main.detail-skoly p {
+    color: #FFFDF9 !important;
+  }
 }
-/*NESAHAT!!! (chyeba kompilace)*/
 body header nav ul li:last-child a:hover {
   color: #0C1844;
 }/*# sourceMappingURL=style.css.map */

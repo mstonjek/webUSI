@@ -17,6 +17,10 @@ $pageMargin: 100px;
     font-family: 'Open Sans', sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 a#logo {
     margin-top: 16px;
     width: 94px;
@@ -625,4 +629,7 @@ body {
             color: $baby !important;
         }
     }
+}
+body header nav ul li:last-child a:hover {
+    color: $pennDark;
 }
