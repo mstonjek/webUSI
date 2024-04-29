@@ -89,6 +89,18 @@ body {
                         }
                     }
                 }
+                
+                li:last-child{
+                    background-color: $darkOrange;
+                    border-radius: 5px;
+                    &:hover{
+                        color: $pennDark;
+                    }
+                }
+
+                li#selected{
+                    
+                }
             }
         }
     }
@@ -462,7 +474,7 @@ body {
                         color: $baby;
 
                         li:last-child &:hover {
-                            color: $pennDark;
+                            color: $pennDark ;
                         }
                     }
                 }
@@ -516,4 +528,8 @@ body {
             color: $baby !important;
         }
     }
+}
+/*NESAHAT!!! (chyeba kompilace)*/
+body header nav ul li:last-child a:hover {
+    color: $pennDark;
 }
