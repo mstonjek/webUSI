@@ -8,6 +8,7 @@ $cobalt: #0E49B5;
 $baby: #FFFDF9;
 $gray: #7b7b7b;
 $black: #121212;
+$pageMargin: 100px;
 
 * {
     margin: 0;
@@ -134,8 +135,14 @@ body {
         }
     }
 
+    main {
+        margin-left: $pageMargin;
+        margin-right: $pageMargin;
+    }
+
     main.index {
         min-height: calc(100vh - 110px);
+        margin: auto;
 
         section:first-child {
             background-image: url("../assets/uvodni.jpg");
@@ -260,6 +267,7 @@ body {
         padding-top: 6%;
         display: flex;
         justify-content: center;
+        margin: auto;
 
         ul {
             display: flex;
@@ -299,13 +307,7 @@ body {
 
     main.o-nas {
         min-height: calc(100vh - 110px);
-
-        section:has(.mapa) {
-            display: flex;
-            justify-content: center;
-            margin: 40px;
-            position: relative;
-        }
+        margin: auto;
 
         .mapa {
             position: relative;
@@ -318,6 +320,7 @@ body {
             .waypoint1 {
                 top: 33.5%;
                 left: 37%;
+
                 &:hover {
                     top: 32.5%;
                 }
@@ -326,6 +329,7 @@ body {
             .waypoint2 {
                 top: 25.5%;
                 left: 48%;
+
                 &:hover {
                     top: 24.5%;
                 }
@@ -334,6 +338,7 @@ body {
             .waypoint3 {
                 top: 52.5%;
                 left: 62.5%;
+
                 &:hover {
                     top: 51.5%;
                 }
@@ -356,8 +361,69 @@ body {
             }
         }
     }
+
     main.detail-skoly {
         min-height: calc(100vh - 110px);
+        margin: 40px;
+        margin-left: $pageMargin;
+        margin-right: $pageMargin;
+
+        a {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 500;
+            color: $pennDark;
+        }
+
+        .arrow1 {
+            position: absolute;
+            width: 48px;
+            top: 45%;
+            left: 2%;
+        }
+        .arrow2 {
+            position: absolute;
+            width: 48px;
+            top: 45%;
+            right: 2%;
+            rotate: 180deg;
+        }
+
+        div {
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            img {
+                margin: 40px;
+                width: 100%;
+            }
+        }
+
+        p {
+            font-size: 32px;
+        }
+
+        section {
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: left;
+
+                .logoskoly {
+                    width: 148px;
+                    height: 148px;
+                }
+
+                p {
+                    margin: auto;
+                }
+            }
+        }
     }
 
     footer {

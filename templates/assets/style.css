@@ -109,8 +109,13 @@ body button:hover {
   /*padding: 20px 15px;
   margin: 0 0 -2.5px -2.5px;*/
 }
+body main {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 body main.index {
   min-height: calc(100vh - 110px);
+  margin: auto;
 }
 body main.index section:first-child {
   background-image: url("../assets/uvodni.jpg");
@@ -214,6 +219,7 @@ body main.uredni-deska {
   padding-top: 6%;
   display: flex;
   justify-content: center;
+  margin: auto;
 }
 body main.uredni-deska ul {
   display: flex;
@@ -248,12 +254,7 @@ body main.uredni-deska ul li a:hover {
 }
 body main.o-nas {
   min-height: calc(100vh - 110px);
-}
-body main.o-nas section:has(.mapa) {
-  display: flex;
-  justify-content: center;
-  margin: 40px;
-  position: relative;
+  margin: auto;
 }
 body main.o-nas .mapa {
   position: relative;
@@ -298,6 +299,55 @@ body main.o-nas section h1 {
 }
 body main.detail-skoly {
   min-height: calc(100vh - 110px);
+  margin: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+body main.detail-skoly a {
+  margin: 0;
+}
+body main.detail-skoly h1 {
+  font-size: 64px;
+  font-weight: 500;
+  color: #0C1844;
+}
+body main.detail-skoly .arrow1 {
+  position: absolute;
+  width: 48px;
+  top: 45%;
+  left: 2%;
+}
+body main.detail-skoly .arrow2 {
+  position: absolute;
+  width: 48px;
+  top: 45%;
+  right: 2%;
+  rotate: 180deg;
+}
+body main.detail-skoly div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+body main.detail-skoly div img {
+  margin: 40px;
+  width: 100%;
+}
+body main.detail-skoly p {
+  font-size: 32px;
+}
+body main.detail-skoly section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+body main.detail-skoly section div .logoskoly {
+  width: 148px;
+  height: 148px;
+}
+body main.detail-skoly section div p {
+  margin: auto;
 }
 body footer {
   background-color: #0C1844;
