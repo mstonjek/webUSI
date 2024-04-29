@@ -1,8 +1,10 @@
 <?php
-    namespace classes;
+    namespace repository;
+
+    use PDO;
+    use PDOException;
+
     require_once "config/config.php";
-
-
 class Database
 {
     private $pdo;
@@ -27,7 +29,20 @@ class Database
         }
     }
 
-    public function query($query, $params) {
+    public function authenticateUser(string $username, string $password): bool
+    {
+        $query = "SELECT * FROM `users` WHERE `username` = :username AND `password` = :password";
+        $params = [
+            "username" => $username,
+            "password" => $password
+        ];
+
+        $stmt = $this->query($query, $params);
+        $user = $stmt->fetch();
+        return $user ? true : false;
+    }
+
+    private function query($query, $params) {
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt;

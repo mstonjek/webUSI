@@ -1,40 +1,40 @@
 <?php
 namespace pages;
 
+session_start();
 
+use classes\userRepository;
+use repository\Database;
 
-// Check if the form was submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if both username and password are provided
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        // Validate the username and password (you should add more validation and security measures)
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+require_once "../repository/Database.php";
 
-        // Here, you would typically query your database to verify the username and password
-        // For simplicity, let's assume the correct credentials are hardcoded
-        $correctUsername = 'admin';
-        $correctPassword = 'password';
+class Login
+{
+    private readonly $database;
+    public function __construct(Database $database) {
+        $this->database = $database;
+    }
 
-        // Check if the provided credentials match the correct ones
-        if ($username === $correctUsername && $password === $correctPassword) {
-            // Authentication successful
-            // Set a session variable to indicate that the user is logged in
-            $_SESSION['logged_in'] = true;
+    public function loginUser(string $username, string $password): void
+    {
+        $sanitizedData = $this->sanitizeInput($username, $password);
+        $user = $this->database->authenticateUser($sanitizedData['username'], $sanitizedData['password']);
 
-            // Redirect the user to a protected page or display a success message
-            header('Location: dashboard.php');
-            exit;
+        if ($user) {
+            $_SESSION['isLogin'] = $user;
+            header('location: ../pages/admin.php?success=true');
         } else {
-            // Authentication failed
-            // Redirect the user back to the login page with an error message
-            header('Location: ../pages/homepage.php?error=invalid_credentials');
-            exit;
+            header('location: ../pages/login.php?error=wrongPassword');
         }
     }
+
+    private function sanitizeInput(string $username, string $password): array
+    {
+        $sanitizedData = [
+            'username' => htmlspecialchars(trim($username)),
+            'password' => htmlspecialchars(trim($password))
+        ];
+        return $sanitizedData;
+    }
+
 }
-
-// If the form was not submitted properly, redirect the user back to the login page
-header('Location: ../login.php');
-exit;
-
