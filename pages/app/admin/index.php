@@ -9,3 +9,8 @@
     \backend\Auth::authorizeUser();
 
     echo "authorized only";
+    ?>
+
+<form action="../../../backend/Logout.php" method="post">
+    <button type="submit" name="logout">Logout</button>
+</form>

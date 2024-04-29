@@ -21,34 +21,17 @@ class Login
 
     public function loginUser(string $username, string $password): void
     {
-        $sanitizedData = $this->sanitizeInput($username, $password);
-        $user = $this->database->authenticateUser($sanitizedData['username'], $sanitizedData['password']);
+        $user = $this->database->authenticateUser($username, $password);
         if ($user) {
             $_SESSION['isLogin'] = $user;
-            header('location: ../pages/index.php.php?success=true');
+            header('location: ../pages/app/admin/');
             exit();
         } else {
-            header('location: ../pages/index.php.php?error=wrongPassword');
+            header('location: ../pages/app/index.php');
             exit();
         }
     }
 
-    public function logoutUser(): void
-    {
-        unset($_SESSION['isLogin']);
-        session_destroy();
-        header('location: ../pages/index.php.php?success=true');
-        exit();
-    }
-
-    private function sanitizeInput(string $username, string $password): array
-    {
-        $sanitizedData = [
-            'username' => htmlspecialchars(trim($username)),
-            'password' => htmlspecialchars(trim($password))
-        ];
-        return $sanitizedData;
-    }
 }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
@@ -57,17 +40,17 @@ class Login
         if (!empty($username) && !empty($password)) {
 
             try {
-                $database = new \repository\Database();
+                $database = new Database();
                 $loginSession = new Login($database);
                 $loginSession->loginUser($username, $password);
             } catch (\Exception $e) {
                 error_log("Error: " . $e->getMessage());
-                header('location: ../pages/index.php.php?error=databaseError');
+                header('location: ../pages/index.php?error=databaseError');
                 exit();
             }
 
         } else {
-            header('location: ../pages/index.php.php?error=emptyInput');
+            header('location: ../pages/index.php?error=emptyInput');
             exit();
         }
     }
