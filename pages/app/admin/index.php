@@ -4,7 +4,7 @@
 
     session_start();
 
-    require_once "../backend/Auth.php";
+    require_once "../../../backend/Auth.php";
 
     \backend\Auth::authorizeUser();
 

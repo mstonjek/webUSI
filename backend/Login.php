@@ -25,10 +25,10 @@ class Login
         $user = $this->database->authenticateUser($sanitizedData['username'], $sanitizedData['password']);
         if ($user) {
             $_SESSION['isLogin'] = $user;
-            header('location: ../pages/admin.php?success=true');
+            header('location: ../pages/index.php.php?success=true');
             exit();
         } else {
-            header('location: ../pages/login.php?error=wrongPassword');
+            header('location: ../pages/index.php.php?error=wrongPassword');
             exit();
         }
     }
@@ -37,7 +37,7 @@ class Login
     {
         unset($_SESSION['isLogin']);
         session_destroy();
-        header('location: ../pages/login.php?success=true');
+        header('location: ../pages/index.php.php?success=true');
         exit();
     }
 
@@ -62,12 +62,12 @@ class Login
                 $loginSession->loginUser($username, $password);
             } catch (\Exception $e) {
                 error_log("Error: " . $e->getMessage());
-                header('location: ../pages/login.php?error=databaseError');
+                header('location: ../pages/index.php.php?error=databaseError');
                 exit();
             }
 
         } else {
-            header('location: ../pages/login.php?error=emptyInput');
+            header('location: ../pages/index.php.php?error=emptyInput');
             exit();
         }
     }
