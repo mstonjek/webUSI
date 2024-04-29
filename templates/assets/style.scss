@@ -90,6 +90,18 @@ body {
                         }
                     }
                 }
+                
+                li:last-child{
+                    background-color: $darkOrange;
+                    border-radius: 5px;
+                    &:hover{
+                        color: $pennDark;
+                    }
+                }
+
+                li#selected{
+                    border-bottom: 5px solid $polly;
+                }
             }
         }
     }
@@ -556,6 +568,9 @@ body {
                     border: #00000012 1px solid;
                 }
 
+                li#selected{
+                    border-bottom: 5px solid $darkOrange;
+                }
             }
         }
 

@@ -76,6 +76,16 @@ body header nav ul li a:hover {
   color: #FF8800;
   transition: 0.3s;
 }
+body header nav ul li:last-child {
+  background-color: #FF8800;
+  border-radius: 5px;
+}
+body header nav ul li:last-child:hover {
+  color: #0C1844;
+}
+body header nav ul li#selected {
+  border-bottom: 5px solid #074998;
+}
 body input {
   text-align: center;
   padding: 10px;
@@ -456,6 +466,9 @@ body footer div:nth-child(3) span.highlight {
   body header nav ul li:not(:last-child) {
     border: rgba(0, 0, 0, 0.0705882353) 1px solid;
   }
+  body header nav ul li#selected {
+    border-bottom: 5px solid #FF8800;
+  }
   body main.index section:nth-child(2) {
     background-color: #0F205F;
   }
@@ -487,12 +500,8 @@ body footer div:nth-child(3) span.highlight {
   main.o-nas p {
     color: #FFFDF9 !important;
   }
-  main.detail-skoly h1 {
-    color: #FF8800 !important;
-  }
-  main.detail-skoly p {
-    color: #FFFDF9 !important;
-  }
 }
-
-/*# sourceMappingURL=style.css.map */
+/*NESAHAT!!! (chyeba kompilace)*/
+body header nav ul li:last-child a:hover {
+  color: #0C1844;
+}/*# sourceMappingURL=style.css.map */
