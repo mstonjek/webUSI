@@ -76,13 +76,6 @@ body header nav ul li a:hover {
   color: #FF8800;
   transition: 0.3s;
 }
-body header nav ul li:last-child {
-  background-color: #FF8800;
-  border-radius: 5px;
-}
-body header nav ul li:last-child:hover {
-  color: #0C1844;
-}
 body input {
   text-align: center;
   padding: 10px;
@@ -336,17 +329,31 @@ body main.detail-skoly div img {
 body main.detail-skoly p {
   font-size: 32px;
 }
+body main.detail-skoly .infopanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+body main.detail-skoly .infopanel p {
+  margin: 0px;
+  font-size: 24px;
+}
 body main.detail-skoly section div {
+  display: flex;
+  justify-content: space-between;
+}
+body main.detail-skoly section div div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
 }
-body main.detail-skoly section div .logoskoly {
+body main.detail-skoly section div div .logoskoly {
   width: 148px;
   height: 148px;
 }
-body main.detail-skoly section div p {
+body main.detail-skoly section div div p {
   margin: auto;
 }
 body footer {
@@ -478,7 +485,5 @@ body footer div:nth-child(3) span.highlight {
     color: #FFFDF9 !important;
   }
 }
-/*NESAHAT!!! (chyeba kompilace)*/
-body header nav ul li:last-child a:hover {
-  color: #0C1844;
-}/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map */

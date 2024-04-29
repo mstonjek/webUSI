@@ -90,18 +90,6 @@ body {
                         }
                     }
                 }
-                
-                li:last-child{
-                    background-color: $darkOrange;
-                    border-radius: 5px;
-                    &:hover{
-                        color: $pennDark;
-                    }
-                }
-
-                li#selected{
-                    
-                }
             }
         }
     }
@@ -384,6 +372,7 @@ body {
             top: 45%;
             left: 2%;
         }
+
         .arrow2 {
             position: absolute;
             width: 48px;
@@ -407,20 +396,35 @@ body {
             font-size: 32px;
         }
 
+        .infopanel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            p {
+                margin: 0px;
+                font-size: 24px;
+            }
+        }
+
         section {
             div {
                 display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: left;
-
-                .logoskoly {
-                    width: 148px;
-                    height: 148px;
-                }
-
-                p {
-                    margin: auto;
+                justify-content: space-between;
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: left;
+    
+                    .logoskoly {
+                        width: 148px;
+                        height: 148px;
+                    }
+    
+                    p {
+                        margin: auto;
+                    }
                 }
             }
         }
@@ -540,7 +544,7 @@ body {
                         color: $baby;
 
                         li:last-child &:hover {
-                            color: $pennDark ;
+                            color: $pennDark;
                         }
                     }
                 }
@@ -594,8 +598,4 @@ body {
             color: $baby !important;
         }
     }
-}
-/*NESAHAT!!! (chyeba kompilace)*/
-body header nav ul li:last-child a:hover {
-    color: $pennDark;
 }
