@@ -3,6 +3,7 @@
 
     use PDO;
     use PDOException;
+    use Relay\Event;
 
     require_once "../config/config.php";
 class Database
@@ -42,12 +43,37 @@ class Database
         return $hashedPassword && password_verify($password, $hashedPassword);
     }
 
+    public function getEventById(int $id): array
+    {
+        $query = "SELECT * FROM `event` WHERE `id` = :id";
+        $params = [ "id" => $id ];
+        $stmt = $this->query($query, $params);
+        $event = $stmt->fetch();
+        return $event;
+    }
+
     public function getAllEvents(): array
     {
-        $query = "SELECT * FROM usi_events ORDER BY date DESC";
-        $stmt = $this->query($query);
-        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC";
+        $stmt = $this->pdo->query($query);
+        $events = $stmt->fetchAll();
+        return $events;
+    }
 
+
+    public function getEventsForEvents(): array
+    {
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 6";
+        $stmt = $this->pdo->query($query);
+        $events = $stmt->fetchAll();
+        return $events;
+    }
+
+    public function getEventsForHomepage(): array
+    {
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 2";
+        $stmt = $this->pdo->query($query);
+        $events = $stmt->fetchAll();
         return $events;
     }
 
