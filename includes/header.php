@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unie Škol Inovativních</title>
-    <link rel="icon" type="image/svg" href="../templates/assets/logo_fn_blue.svg" />
-    <link rel="stylesheet" href="../templates/assets/style.css">
+    <link rel="icon" type="image/svg" href="../assets/logo_fn_blue.svg" />
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>

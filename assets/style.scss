@@ -1,0 +1,760 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$darkOrange: #FF8800;
+$pennDark: #0C1844;
+$pennLight: #0F205F;
+$polly: #074998;
+$cobalt: #0E49B5;
+$baby: #FFFDF9;
+$gray: #7b7b7b;
+$black: #121212;
+$pageMargin: 100px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a#logo {
+    margin-top: 16px;
+    width: 94px;
+}
+
+.logo {
+    fill: $cobalt;
+}
+
+.back_button {
+    color: $baby;
+    background-color: $pennDark;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 11px 30px 11px 30px;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 500;
+    border-radius: 13px;
+    gap: 5px;
+}
+
+.tag {
+    background: #D9D9D9;
+    color: black;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.button {
+    background-color: $darkOrange;
+    border-radius: 13px;
+    font-size: 28px;
+    width: fit-content;
+    padding: 11px 30px 11px 30px;
+
+    p {
+        color: $baby;
+    }
+}
+
+.highlight {
+    color: $darkOrange;
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    min-height: 130vh;
+
+    header {
+        height: 110px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 100px;
+        background-color: $baby;
+
+        nav {
+            ul {
+                display: flex;
+                list-style: none;
+                height: 100%;
+
+                li {
+                    border: #12121212 solid 1px;
+                    height: 100%;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: $black;
+                        text-decoration: none;
+                        height: 100%;
+                        padding: 20px;
+                        margin: 0 5px;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        color: $pennDark;
+                        transition: 0.3s;
+
+                        &:hover {
+                            color: $darkOrange;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    input {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.4rem;
+        background-color: $baby;
+        color: $gray;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: $darkOrange;
+        font-weight: 1000;
+        padding: 15px 10px;
+        font-size: 1.8rem;
+        color: $baby;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            /*padding: 20px 15px;
+            margin: 0 0 -2.5px -2.5px;*/
+        }
+    }
+
+    main {
+        margin-left: $pageMargin;
+        margin-right: $pageMargin;
+    }
+
+    main.index {
+        min-height: calc(100vh - 110px);
+        margin: auto;
+
+        section:first-child {
+            background-image: url("../assets/uvodni.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height: calc(100vh - 110px);
+
+            div {
+                position: absolute;
+                bottom: 20%;
+                left: 10%;
+
+                button {
+                    margin-top: 40px;
+                }
+            }
+
+            h1 {
+                font-size: 3rem;
+                color: $baby;
+                font-weight: 1000;
+            }
+
+            p {
+                color: $baby;
+                font-size: 1.6rem;
+            }
+        }
+
+        section:nth-child(2) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $baby;
+            padding: 40px 0 50px 0;
+
+            &>div {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+                background-color: $baby;
+
+                div {
+                    background-color: $pennLight;
+                    padding: 20px;
+                    border-radius: 5px;
+
+                    img {
+                        border-radius: 5px;
+                    }
+
+                    &:first-child {
+                        border-right: #00000042 2px solid;
+                        padding-right: 20px;
+                    }
+
+                    h2 {
+                        color: $baby;
+                        margin-left: 20px;
+                        font-weight: bold;
+                        font-size: 1.8rem;
+                    }
+
+                    p {
+                        margin-left: 20px;
+
+                        color: $baby;
+                        font-size: 1.6rem;
+                    }
+
+                    button {
+                        margin-left: 20px;
+                        font-weight: 700;
+                        margin-top: 20px;
+                        padding: 5px 20px;
+                    }
+                }
+            }
+        }
+
+        section:nth-child(3) {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: $pennLight;
+            margin: 50px 0;
+
+            img {
+                object-fit: cover;
+                max-height: 60vh;
+                width: 50%;
+            }
+
+            div {
+                padding: 0 50px;
+                width: 50%;
+
+                * {
+                    color: $baby;
+                }
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                button {
+                    margin: 30px 0 0 0;
+                    font-weight: 700;
+                    padding: 5px 15px;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+    main.uredni-deska {
+        height: calc(100vh - 110px);
+        width: 100%;
+        padding-top: 6%;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+
+        ul {
+            display: flex;
+            list-style: none;
+            width: 700px;
+            height: 60%;
+            flex-direction: column;
+            justify-content: space-between;
+
+            li {
+                width: 100%;
+                margin: 15px 0;
+
+                a {
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    padding: 15px 0;
+                    background-color: $pennLight;
+                    text-decoration: none;
+                    color: $baby;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: 0.3s;
+                    border-radius: 5px;
+
+                    &:hover {
+                        background-color: $darkOrange;
+                        transition: 0.3s;
+                    }
+                }
+            }
+        }
+    }
+
+    main.o-nas {
+        min-height: calc(100vh - 110px);
+        margin: auto;
+
+        .mapa {
+            position: relative;
+
+            a {
+                position: absolute;
+                transition: 0.3s;
+            }
+
+            .waypoint1 {
+                top: 33.5%;
+                left: 37%;
+
+                &:hover {
+                    top: 32.5%;
+                }
+            }
+
+            .waypoint2 {
+                top: 25.5%;
+                left: 48%;
+
+                &:hover {
+                    top: 24.5%;
+                }
+            }
+
+            .waypoint3 {
+                top: 52.5%;
+                left: 62.5%;
+
+                &:hover {
+                    top: 51.5%;
+                }
+            }
+
+            // Pokus o automatizaci souřadnic na mapu
+            // .waypoint4 {
+            //     left: 29.8696421181%;
+            //     bottom: 51.1729478723%;
+
+            //     &:hover {
+            //         top: 51.5%;
+            //     }
+            // }
+        }
+
+        section {
+            margin: 95px;
+            display: flex;
+            justify-content: center;
+
+            h1,
+            p {
+                margin: 40px;
+            }
+
+            h1 {
+                font-size: 40px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    main.detail-skoly {
+        min-height: calc(100vh - 110px);
+        margin: 40px;
+        margin-left: $pageMargin;
+        margin-right: $pageMargin;
+
+        a {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 500;
+            color: $pennDark;
+        }
+
+        .arrow1 {
+            position: absolute;
+            width: 48px;
+            top: 45%;
+            left: 2%;
+        }
+
+        .arrow2 {
+            position: absolute;
+            width: 48px;
+            top: 45%;
+            right: 2%;
+            rotate: 180deg;
+        }
+
+        div {
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            img {
+                margin: 40px;
+                width: 100%;
+            }
+        }
+
+        p {
+            font-size: 32px;
+        }
+
+        .infopanel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            p {
+                margin: 0px;
+                font-size: 24px;
+            }
+        }
+
+        section {
+            div {
+                display: flex;
+                justify-content: space-between;
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: left;
+
+                    .logoskoly {
+                        width: 148px;
+                        height: 148px;
+                    }
+
+                    p {
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    main.chci-se-pripojit {
+        min-height: calc(100vh - 110px);
+        margin-top: 40px;
+        color: $baby;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+        }
+
+        .navodNaPripojeni {
+            font-size: 28px;
+
+            h1 {
+                margin-bottom: 20px;
+            }
+
+            ul {
+                margin-left: 60px;
+            }
+
+            padding: 40px;
+            background: $pennLight;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 69%;
+        }
+
+        .button {
+            margin-bottom: 10vh;
+        }
+    }
+
+    main.detail-akce {
+        color: $pennDark;
+
+        section {
+            margin-left: $pageMargin;
+            margin-right: $pageMargin;
+        }
+
+        div {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        .shortInfoProAkci {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tagyProAkci {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .obrazkyProAkci {
+            display: flex;
+            justify-content: center;
+            position: relative;
+
+            .image {
+                width: 90%;
+                margin: 40px;
+            }
+            .arrow1, .arrow2 {
+                position: absolute;
+                width: 48px;
+                top: 50%;
+            }
+
+            .arrow1 {
+                left: 7%;
+            }
+            .arrow2 {
+                rotate: 180deg;
+                right: 7%;
+            }
+        }
+    }
+    main.login {
+        min-height: calc(100vh - 110px);
+    }
+
+    footer {
+        background-color: $pennDark;
+        height: 40vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .hover {
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .hover:hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            top: 17%;
+            transition: 0.3s;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+        }
+
+        section:nth-child(2) {
+            border-top: $baby solid 1px;
+            padding-top: 5px;
+
+            p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $baby;
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        div {
+            color: $baby;
+
+            &:first-child {
+                display: flex;
+                flex-direction: column;
+            }
+
+            font-weight: normal;
+            font-size: 1.4rem;
+
+            span.highlight {
+                justify-self: right;
+            }
+
+            &:nth-child(2) {
+                position: relative;
+
+                img:last-child {
+                    position: absolute;
+                    transition: 0.3s;
+                    top: 20%;
+                    right: 57%;
+
+                    &:hover {
+                        top: 17%;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                p {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
+                svg {
+                    width: 50px;
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                }
+
+                span.highlight {
+                    display: block;
+                    margin: 0 0 20px -45px;
+                }
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo {
+        fill: $darkOrange;
+    }
+
+    .back_button {
+        background-color: $darkOrange;
+    }
+
+    body {
+        background-color: $pennLight;
+
+        header {
+            background-color: $pennDark;
+
+            nav ul {
+                li {
+                    a {
+                        color: $baby;
+
+                        li:last-child &:hover {
+                            color: $pennDark;
+                        }
+                    }
+                }
+
+                li:not(:last-child) {
+                    border: #00000012 1px solid;
+                }
+
+            }
+        }
+
+        main.index {
+            section:nth-child(2) {
+                background-color: $pennLight;
+
+                &>div {
+                    background-color: $pennLight;
+
+                    &>div {
+                        background-color: $baby;
+
+                        h2,
+                        p {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main.uredni-deska {
+        background-color: $pennLight;
+
+        ul li a {
+            background-color: $baby !important;
+            color: $pennLight !important;
+
+            &:hover {
+                background-color: $darkOrange !important;
+                color: $pennDark !important;
+            }
+        }
+    }
+
+    main.o-nas {
+        background-color: $pennLight;
+
+        h1,
+        p {
+            color: $baby !important;
+        }
+    }
+
+    main.detail-skoly {
+        h1 {
+            color: $darkOrange !important;
+        }
+
+        p {
+            color: $baby !important;
+        }
+    }
+
+    main.chci-se-pripojit {
+        .navodNaPripojeni {
+            color: $pennDark;
+            background: white !important;
+        }
+    }
+
+    main.detail-akce {
+
+        h1,
+        p {
+            color: $baby;
+        }
+    }
+}
