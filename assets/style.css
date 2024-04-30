@@ -6,11 +6,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  transition: transform 0.5s ease;
-}
-
 a#logo {
   margin-top: 16px;
   width: 94px;
@@ -232,26 +227,6 @@ body main.index section:nth-child(3) div button {
   font-weight: 700;
   padding: 5px 15px;
   font-size: 1.6rem;
-}
-body main.probehle-akce h1:first-child {
-  font-size: 3.5rem;
-  margin: 5rem 1rem 3rem 1rem;
-}
-body main.probehle-akce button {
-  font-weight: normal;
-  color: #121212;
-  background-color: #D9D9D9;
-  border-radius: 13px;
-  padding: 3px 45px;
-}
-body main.probehle-akce .carousel {
-  margin: 1rem 3rem;
-}
-body main.probehle-akce li.carouselImage {
-  display: inline;
-}
-body main.probehle-akce section:first-child {
-  margin-bottom: 3rem;
 }
 body main.uredni-deska {
   height: calc(100vh - 110px);
@@ -593,9 +568,6 @@ body footer div:nth-child(3) span.highlight {
   body main.index section:nth-child(2) > div > div h2,
   body main.index section:nth-child(2) > div > div p {
     color: #121212;
-  }
-  main.probehle-akce * {
-    color: #FFFDF9;
   }
   main.uredni-deska {
     background-color: #0F205F;

@@ -24,10 +24,10 @@ class Login
         $user = $this->database->authenticateUser($username, $password);
         if ($user) {
             $_SESSION['isLogin'] = $user;
-            header('location: ../pages/app/admin/');
+            header('location: ../pages/admin.php');
             exit();
         } else {
-            header('location: ../pages/app/index.php');
+            header('location: ../pages/');
             exit();
         }
     }
@@ -45,12 +45,12 @@ class Login
                 $loginSession->loginUser($username, $password);
             } catch (\Exception $e) {
                 error_log("Error: " . $e->getMessage());
-                header('location: ../pages/index.php?error=databaseError');
+                header('location: ../pages/login.php?error=databaseError');
                 exit();
             }
 
         } else {
-            header('location: ../pages/index.php?error=emptyInput');
+            header('location: ../pages/login.php?error=emptyInput');
             exit();
         }
     }

@@ -1,11 +1,18 @@
 <?php
     namespace repository;
 
+    use Cassandra\Date;
     use PDO;
     use PDOException;
+    use Relay\Event;
 
     require_once "../config/config.php";
-class Database
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    class Database
 {
     private $pdo;
 
@@ -39,30 +46,51 @@ class Database
         $stmt = $this->query($query, $params);
         $hashedPassword = $stmt->fetchColumn(2);
 
-        if (!$hashedPassword) {
-            return false; // User not found
-        }
-
-        // Verify the password
-        if (password_verify($password, $hashedPassword)) {
-            return true; // Passwords match, authentication successful
-        } else {
-            return false; // Passwords don't match, authentication failed
-        }
+        return $hashedPassword && password_verify($password, $hashedPassword);
     }
 
-    public function getEventsForHomepage(): array
+    public function getEventById(int $id): array
     {
-        $query = "SELECT * FROM `events` ORDER BY `date` DESC LIMIT 2";
-        $stmt = $this->query($query, null);
+        $query = "SELECT * FROM `usi_event` WHERE `eventID` = :id";
+        $params = [ "id" => $id ];
+        $stmt = $this->query($query, $params);
+        $event = $stmt->fetch();
+        return $event;
+    }
+
+    public function editEvent(int $eventID, string $title, string $description, string $location): void
+    {
+        $query = "UPDATE usi_event SET title = :title, location = :location, description = :description WHERE eventID = :eventID";
+        $params = [
+            'title' => $title,
+            'location' => $location,
+            'description' => $description,
+            'eventID' => $eventID
+        ];
+        $stmt = $this->query($query, $params);
+    }
+
+    public function getAllEvents(): array
+    {
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC";
+        $stmt = $this->pdo->query($query);
         $events = $stmt->fetchAll();
         return $events;
     }
 
-    public function getAllEvents()
+
+    public function getEventsForEvents(): array
     {
-        $query = "SELECT * FROM `events` ORDER BY `date` DESC";
-        $stmt = $this->query($query, null);
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 6";
+        $stmt = $this->pdo->query($query);
+        $events = $stmt->fetchAll();
+        return $events;
+    }
+
+    public function getEventsForHomepage(): array
+    {
+        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 2";
+        $stmt = $this->pdo->query($query);
         $events = $stmt->fetchAll();
         return $events;
     }
