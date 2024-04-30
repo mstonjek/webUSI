@@ -18,15 +18,6 @@ $events = $database->getEventsForHomepage();
 include_once("../includes/header.php");
 ?>
 
-<<<<<<< Updated upstream
-<h1><?php $events["title"] ?></h1>
-<h1><?php $events["date"]->format("d-m-Y") ?></h1>
-<h1><?php $events["location"] ?></h1>
-<h1><?php $events["description"] ?></h1>
-<a href="event.php?event_id=<?php $events["eventID"]?>">Více</a>
-<?php
-    include_once("../includes/footer.php");
-=======
 <?php foreach ($events as $event): ?>
     <div>
         <h1><?php echo $event["title"]; ?></h1>
@@ -38,6 +29,5 @@ include_once("../includes/header.php");
 <?php endforeach; ?>
 
 
->>>>>>> Stashed changes
 
 
