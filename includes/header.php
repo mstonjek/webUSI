@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unie Škol Inovativních</title>
-    <link rel="icon" type="image/svg" href="../assets/logo_fn_blue.svg" />
+    <link rel="icon" type="image/svg" href="../templates/assets/logo_fn_blue.svg" />
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 
@@ -29,7 +29,7 @@
                     <a href="#footer">Kontakty</a>
                 </li>
                 <li>
-                    <a href="officialBoard">Úřední deska</a>
+                    <a href="officialBoard.php">Úřední deska</a>
                 </li>
                 <li>
                     <a href="signup.php">Chci se zapojit</a>
