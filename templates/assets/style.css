@@ -6,10 +6,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 a#logo {
   margin-top: 16px;
   width: 94px;
@@ -32,6 +28,28 @@ a#logo {
   font-weight: 500;
   border-radius: 13px;
   gap: 5px;
+}
+
+.tag {
+  background: #D9D9D9;
+  color: black;
+  font-size: 21px;
+  font-weight: bold;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #FF8800;
+  border-radius: 13px;
+  font-size: 28px;
+  width: fit-content;
+  padding: 11px 30px 11px 30px;
+}
+.button p {
+  color: #FFFDF9;
 }
 
 .highlight {
@@ -79,16 +97,6 @@ body header nav ul li a {
 body header nav ul li a:hover {
   color: #FF8800;
   transition: 0.3s;
-}
-body header nav ul li:last-child {
-  background-color: #FF8800;
-  border-radius: 5px;
-}
-body header nav ul li:last-child:hover {
-  color: #0C1844;
-}
-body header nav ul li#selected {
-  border-bottom: 5px solid #074998;
 }
 body input {
   text-align: center;
@@ -291,6 +299,13 @@ body main.o-nas .mapa .waypoint3 {
 body main.o-nas .mapa .waypoint3:hover {
   top: 51.5%;
 }
+body main.o-nas .mapa .waypoint4 {
+  left: 29.8696421181%;
+  bottom: 51.1729478723%;
+}
+body main.o-nas .mapa .waypoint4:hover {
+  top: 51.5%;
+}
 body main.o-nas section {
   margin: 95px;
   display: flex;
@@ -369,6 +384,60 @@ body main.detail-skoly section div div .logoskoly {
 }
 body main.detail-skoly section div div p {
   margin: auto;
+}
+body main.chci-se-pripojit {
+  min-height: calc(100vh - 110px);
+  margin-top: 40px;
+  color: #FFFDF9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+body main.chci-se-pripojit a {
+  text-decoration: none;
+}
+body main.chci-se-pripojit .navodNaPripojeni {
+  font-size: 28px;
+  padding: 40px;
+  background: #0F205F;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 69%;
+}
+body main.chci-se-pripojit .navodNaPripojeni h1 {
+  margin-bottom: 20px;
+}
+body main.chci-se-pripojit .navodNaPripojeni ul {
+  margin-left: 60px;
+}
+body main.chci-se-pripojit .button {
+  margin-bottom: 10vh;
+}
+body main.detail-akce {
+  color: #0C1844;
+}
+body main.detail-akce section {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+body main.detail-akce div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+body main.detail-akce h1 {
+  font-size: 64px;
+  font-weight: bold;
+}
+body main.detail-akce .shortInfoProAkci {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body main.detail-akce .tagyProAkci {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 body footer {
   background-color: #0C1844;
@@ -470,9 +539,6 @@ body footer div:nth-child(3) span.highlight {
   body header nav ul li:not(:last-child) {
     border: rgba(0, 0, 0, 0.0705882353) 1px solid;
   }
-  body header nav ul li#selected {
-    border-bottom: 5px solid #FF8800;
-  }
   body main.index section:nth-child(2) {
     background-color: #0F205F;
   }
@@ -510,7 +576,10 @@ body footer div:nth-child(3) span.highlight {
   main.detail-skoly p {
     color: #FFFDF9 !important;
   }
+  main.chci-se-pripojit .navodNaPripojeni {
+    color: #0C1844;
+    background: white !important;
+  }
 }
-body header nav ul li:last-child a:hover {
-  color: #0C1844;
-}/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map */
