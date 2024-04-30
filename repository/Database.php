@@ -48,7 +48,6 @@
 
         return $hashedPassword && password_verify($password, $hashedPassword);
     }
-
     public function getEventById(int $id): array
     {
         $query = "SELECT * FROM `usi_event` WHERE `eventID` = :id";
@@ -94,7 +93,6 @@
         $events = $stmt->fetchAll();
         return $events;
     }
-
     private function query($query, $params) {
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
