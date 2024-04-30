@@ -19,20 +19,11 @@
         </a>
         <nav>
             <ul>
-                <li id="selected">
-                    <a href="events.php">Akce</a>
+                <li>
+                    <a href="editEvents.php">Akce</a>
                 </li>
                 <li>
-                    <a href="about.php">O nás</a>
-                </li>
-                <li>
-                    <a href="officialBoard.php">Úřední deska</a>
-                </li>
-                <li>
-                    <a href="#footer">Kontakty</a>
-                </li>
-                <li>
-                    <a href="signup.php">Chci se zapojit</a>
+                    <a href="editSchools.php">Školy</a>
                 </li>
             </ul>
         </nav>

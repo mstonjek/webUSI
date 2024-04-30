@@ -20,7 +20,7 @@
     }
 
     $event = $database->getEventById($event_id);
-
+    include_once("../includes/headerAdmin.php");
     ?>
 
 <form action="../backend/UploadEvents.php" method="POST">

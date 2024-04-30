@@ -15,7 +15,7 @@ $database = new \repository\Database();
 
 $events = $database->getAllEvents();
 
-include_once("../includes/header.php");
+include_once("../includes/headerAdmin.php");
 ?>
 
 <a href="./addEvent.php">Přidat</a>

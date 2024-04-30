@@ -18,6 +18,10 @@ $events = $database->getEventsForHomepage();
 include_once("../includes/header.php");
 ?>
 
+
+
+
+
 <?php foreach ($events as $event): ?>
     <div>
         <h1><?php echo $event["title"]; ?></h1>
@@ -27,6 +31,13 @@ include_once("../includes/header.php");
         <hr>
     </div>
 <?php endforeach;
+
+
+
+
+
+
+
 include_once("../includes/footer.php");
 
 
