@@ -40,7 +40,7 @@ include_once("../includes/header.php");
             <div>
                 <img src="https://ralfvanveen.com/wp-content/uploads/2021/06/Placeholder-_-Glossary.svg" alt="fotogragie z kroužku">
                 <h2><?php echo $event["title"]; ?></h2>
-                <p><?php echo substr($event["description"], 0, 10); ?></p>
+                <p><?php echo substr($event["description"], 0, 30).".."; ?></p>
                 <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>">Více</a>
                 <hr>
             </div>
