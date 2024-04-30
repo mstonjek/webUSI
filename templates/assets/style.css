@@ -442,14 +442,23 @@ body main.detail-akce .tagyProAkci {
 body main.detail-akce .obrazkyProAkci {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 body main.detail-akce .obrazkyProAkci .image {
-  position: relative;
-  width: 100%;
+  width: 90%;
+  margin: 40px;
 }
 body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
   position: absolute;
   width: 48px;
+  top: 50%;
+}
+body main.detail-akce .obrazkyProAkci .arrow1 {
+  left: 7%;
+}
+body main.detail-akce .obrazkyProAkci .arrow2 {
+  rotate: 180deg;
+  right: 7%;
 }
 body footer {
   background-color: #0C1844;
