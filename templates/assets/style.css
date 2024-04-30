@@ -68,6 +68,7 @@ a#logo {
 
 body {
   min-height: 130vh;
+  background-color: #FFFDF9;
 }
 body header {
   height: 110px;
@@ -466,7 +467,8 @@ body main.detail-akce .obrazkyProAkci .image {
   width: 90%;
   margin: 40px;
 }
-body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
+body main.detail-akce .obrazkyProAkci .arrow1,
+body main.detail-akce .obrazkyProAkci .arrow2 {
   position: absolute;
   width: 48px;
   top: 50%;
@@ -479,54 +481,56 @@ body main.detail-akce .obrazkyProAkci .arrow2 {
   right: 7%;
 }
 body main.login {
+  min-height: calc(100vh - 110px);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 110px);
+}
+body main.login form, body main.login div, body main.login input, body main.login button {
+  margin: 10px;
 }
 body main.login form {
-  height: 80%;
-  width: 28%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px;
   background-color: #0F205F;
   border-radius: 45px;
+  padding: 100px;
 }
-body main.login form h1 {
-  font-size: 48px;
-  text-align: center;
-  color: #FFFDF9;
-  margin-bottom: 20px;
-}
-body main.login form > div {
-  margin-top: 0;
-}
-body main.login form > div > input {
+body main.login form input {
   width: 100%;
-  margin: 10px 0;
-}
-body main.login form div > div {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-body main.login form div > div input {
-  width: 20px;
-  cursor: pointer;
-}
-body main.login form div > div label {
-  color: #FFFDF9;
-  margin-left: 5px;
-  font-weight: 600;
 }
 body main.login form button {
-  margin-top: 50px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 10px 20px;
+  width: 80%;
+}
+body main.login form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main.login h1 {
+  color: #FFFDF9;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+body main.login p {
+  color: #FFFDF9;
+}
+body main.login .checkbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+body main.login .checkbox p {
+  font-size: 18px;
+}
+body main.login .checkbox input {
+  width: auto;
 }
 body footer {
   background-color: #0C1844;
@@ -613,6 +617,13 @@ body footer div:nth-child(3) span.highlight {
   .back_button {
     background-color: #FF8800;
   }
+  input {
+    color: #FFFDF9 !important;
+    background-color: #7b7b7b !important;
+  }
+  ::placeholder {
+    color: #FFFDF9 !important;
+  }
   body {
     background-color: #0F205F;
   }
@@ -676,8 +687,11 @@ body footer div:nth-child(3) span.highlight {
   main.detail-akce p {
     color: #FFFDF9;
   }
-  main.login div {
-    background-color: #0C1844;
+  main.login h1, main.login p {
+    color: #0C1844 !important;
+  }
+  main.login form {
+    background-color: #FFFDF9 !important;
   }
 }
 
