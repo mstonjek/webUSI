@@ -655,6 +655,24 @@ body {
             }
         }
     }
+    main.admin-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            color: $pennDark;
+        }
+
+        div {
+            background-color: $pennDark;
+
+            div {
+                background-color: $baby;
+            }
+        }
+    }
 
     footer {
         background-color: $pennDark;

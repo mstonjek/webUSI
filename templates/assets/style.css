@@ -532,6 +532,21 @@ body main.login .checkbox p {
 body main.login .checkbox input {
   width: auto;
 }
+body main.admin-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main.admin-menu h1 {
+  color: #0C1844;
+}
+body main.admin-menu div {
+  background-color: #0C1844;
+}
+body main.admin-menu div div {
+  background-color: #FFFDF9;
+}
 body footer {
   background-color: #0C1844;
   height: 40vh;
