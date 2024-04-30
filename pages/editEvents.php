@@ -15,6 +15,7 @@ $database = new \repository\Database();
 
 $events = $database->getAllEvents();
 
+include_once("../includes/header.php");
 ?>
 
 
