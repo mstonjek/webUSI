@@ -15,6 +15,7 @@ $database = new \repository\Database();
 
 $events = $database->getAllEvents();
 
+include_once("../includes/header.php");
 ?>
 
 
@@ -27,5 +28,5 @@ $events = $database->getAllEvents();
         <a href="editEvent.php?event_id=<?php $event["eventID"] ?>">Upravit</a>
         <hr>
     </div>
-<?php endforeach; ?>
-
+<?php endforeach;
+include_once("../includes/footer.php");

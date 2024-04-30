@@ -14,7 +14,7 @@
     }
 
     $event = $database->getEventById($event_id);
-
+    include_once("../includes/header.php");
     ?>
 
 <h1><?php $event["title"] ?></h1>
@@ -22,3 +22,6 @@
 <h1><?php $event["location"] ?></h1>
 <h1><?php $event["description"] ?></h1>
 <a href="events.php">Zpět</a>
+
+<?php
+    include_once("../includes/footer.php");
