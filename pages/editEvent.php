@@ -33,4 +33,5 @@
 </form>
 <a href="./events.php">Zpět</a>
 
-
+<?php
+    include_once("../includes/footer.php");

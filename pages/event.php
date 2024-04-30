@@ -17,6 +17,7 @@
     include_once("../includes/header.php");
     ?>
 
+
 <h1><?php echo $event["title"]; ?></h1>
 <p><?php echo $event["date"]; ?></p>
 <p><?php echo $event["location"]; ?></p>
@@ -24,6 +25,8 @@
 <a href="./events.php">Zpět</a>
 
 <?php
-
     include_once("../includes/footer.php");
-?>
+    ?>
+
+
+
