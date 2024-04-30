@@ -556,6 +556,9 @@ body {
             }
         }
     }
+    main.login {
+        min-height: calc(100vh - 110px);
+    }
 
     footer {
         background-color: $pennDark;

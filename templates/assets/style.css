@@ -453,6 +453,9 @@ body main.detail-akce .obrazkyProAkci .arrow2 {
   rotate: 180deg;
   right: 7%;
 }
+body main.login {
+  min-height: calc(100vh - 110px);
+}
 body footer {
   background-color: #0C1844;
   height: 40vh;
