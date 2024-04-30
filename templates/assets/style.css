@@ -479,7 +479,54 @@ body main.detail-akce .obrazkyProAkci .arrow2 {
   right: 7%;
 }
 body main.login {
-  min-height: calc(100vh - 110px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 110px);
+}
+body main.login form {
+  height: 80%;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  background-color: #0F205F;
+  border-radius: 45px;
+}
+body main.login form h1 {
+  font-size: 48px;
+  text-align: center;
+  color: #FFFDF9;
+  margin-bottom: 20px;
+}
+body main.login form > div {
+  margin-top: 0;
+}
+body main.login form > div > input {
+  width: 100%;
+  margin: 10px 0;
+}
+body main.login form div > div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+body main.login form div > div input {
+  width: 20px;
+  cursor: pointer;
+}
+body main.login form div > div label {
+  color: #FFFDF9;
+  margin-left: 5px;
+  font-weight: 600;
+}
+body main.login form button {
+  margin-top: 50px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 10px 20px;
 }
 body footer {
   background-color: #0C1844;
@@ -628,6 +675,9 @@ body footer div:nth-child(3) span.highlight {
   main.detail-akce h1,
   main.detail-akce p {
     color: #FFFDF9;
+  }
+  main.login div {
+    background-color: #0C1844;
   }
 }
 
