@@ -19,6 +19,13 @@ include_once("../includes/header.php");
         <span>Date: <?php echo $event["date"]; ?></span>
         <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>">Více</a>
     </div>
-<?php endforeach;
-include_once("../includes/footer.php");
+<?php endforeach; ?>
+
+<?php
+
+
+    include_once("../includes/footer.php");
+
+
+
 
