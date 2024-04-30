@@ -44,7 +44,6 @@ include_once("../includes/header.php");
                 <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>">
                     <button>Celý článek</button>                
                 </a>
-                <hr>
             </div>
             <?php endforeach;?>
         </div>
