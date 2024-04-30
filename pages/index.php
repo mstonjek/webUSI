@@ -26,8 +26,7 @@ include_once("../includes/header.php");
         <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>">Více</a>
         <hr>
     </div>
-<?php endforeach; ?>
-
-
+<?php endforeach;
+include_once("../includes/footer.php");
 
 
