@@ -299,13 +299,6 @@ body main.o-nas .mapa .waypoint3 {
 body main.o-nas .mapa .waypoint3:hover {
   top: 51.5%;
 }
-body main.o-nas .mapa .waypoint4 {
-  left: 29.8696421181%;
-  bottom: 51.1729478723%;
-}
-body main.o-nas .mapa .waypoint4:hover {
-  top: 51.5%;
-}
 body main.o-nas section {
   margin: 95px;
   display: flex;

@@ -355,14 +355,15 @@ body {
                 }
             }
 
-            .waypoint4 {
-                left: 29.8696421181%;
-                bottom: 51.1729478723%;
+            // Pokus o automatizaci souřadnic na mapu
+            // .waypoint4 {
+            //     left: 29.8696421181%;
+            //     bottom: 51.1729478723%;
 
-                &:hover {
-                    top: 51.5%;
-                }
-            }
+            //     &:hover {
+            //         top: 51.5%;
+            //     }
+            // }
         }
 
         section {
