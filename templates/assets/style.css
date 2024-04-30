@@ -439,6 +439,18 @@ body main.detail-akce .tagyProAkci {
   flex-direction: row;
   gap: 20px;
 }
+body main.detail-akce .obrazkyProAkci {
+  display: flex;
+  justify-content: center;
+}
+body main.detail-akce .obrazkyProAkci .image {
+  position: relative;
+  width: 100%;
+}
+body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
+  position: absolute;
+  width: 48px;
+}
 body footer {
   background-color: #0C1844;
   height: 40vh;
@@ -579,6 +591,10 @@ body footer div:nth-child(3) span.highlight {
   main.chci-se-pripojit .navodNaPripojeni {
     color: #0C1844;
     background: white !important;
+  }
+  main.detail-akce h1,
+  main.detail-akce p {
+    color: #FFFDF9;
   }
 }
 
