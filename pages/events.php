@@ -12,11 +12,6 @@ $events = $database->getAllEvents();
 include_once("../includes/header.php");
 ?>
 
-<<<<<<< Updated upstream
-<?php
-    include_once("../includes/footer.php");
-=======
-
 <?php foreach ($events as $event): ?>
     <div>
         <h1><?php echo $event["title"]; ?></h1>
@@ -26,4 +21,11 @@ include_once("../includes/header.php");
     </div>
 <?php endforeach; ?>
 
->>>>>>> Stashed changes
+<?php
+
+
+    include_once("../includes/footer.php");
+
+
+
+
