@@ -15,7 +15,7 @@ require_once "../repository/Database.php";
 
 $database = new \repository\Database();
 $events = $database->getEventsForHomepage();
-
+include_once("../includes/header.php");
 ?>
 
 <h1><?php $events["title"] ?></h1>

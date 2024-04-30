@@ -9,6 +9,7 @@ require_once "../backend/Auth.php";
 \backend\Auth::authorizeUser();
 
 echo "authorized only";
+include_once("../includes/header.php");
 ?>
 
 <form action="../backend/Logout.php" method="post">

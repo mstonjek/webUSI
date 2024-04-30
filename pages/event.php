@@ -14,7 +14,7 @@
     }
 
     $event = $database->getEventById($event_id);
-
+    include_once("../includes/header.php");
     ?>
 
 <h1><?php $event["title"] ?></h1>
