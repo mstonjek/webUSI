@@ -1,12 +1,18 @@
 <?php
     namespace repository;
 
+    use Cassandra\Date;
     use PDO;
     use PDOException;
     use Relay\Event;
 
     require_once "../config/config.php";
-class Database
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    class Database
 {
     private $pdo;
 
@@ -45,11 +51,23 @@ class Database
 
     public function getEventById(int $id): array
     {
-        $query = "SELECT * FROM `event` WHERE `id` = :id";
+        $query = "SELECT * FROM `usi_event` WHERE `eventID` = :id";
         $params = [ "id" => $id ];
         $stmt = $this->query($query, $params);
         $event = $stmt->fetch();
         return $event;
+    }
+
+    public function editEvent(int $eventID, string $title, string $description, string $location): void
+    {
+        $query = "UPDATE usi_event SET title = :title, location = :location, description = :description WHERE eventID = :eventID";
+        $params = [
+            'title' => $title,
+            'location' => $location,
+            'description' => $description,
+            'eventID' => $eventID
+        ];
+        $stmt = $this->query($query, $params);
     }
 
     public function getAllEvents(): array
