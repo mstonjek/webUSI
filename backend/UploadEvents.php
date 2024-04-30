@@ -40,7 +40,7 @@ class UploadEvents
             try {
                 $database = new Database();
                 $loginSession = new UploadEvents($database);
-                $loginSession->uploadEvent($eventID, $title, $date, $location, $description);
+                $loginSession->uploadEvent($eventID, $title, $location, $description);
             } catch (\Exception $e) {
                 error_log("Error: " . $e->getMessage());
                 header('location: ../pages/login.php?error=databaseError');
