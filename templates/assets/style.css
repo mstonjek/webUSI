@@ -299,13 +299,6 @@ body main.o-nas .mapa .waypoint3 {
 body main.o-nas .mapa .waypoint3:hover {
   top: 51.5%;
 }
-body main.o-nas .mapa .waypoint4 {
-  left: 29.8696421181%;
-  bottom: 51.1729478723%;
-}
-body main.o-nas .mapa .waypoint4:hover {
-  top: 51.5%;
-}
 body main.o-nas section {
   margin: 95px;
   display: flex;
@@ -442,14 +435,23 @@ body main.detail-akce .tagyProAkci {
 body main.detail-akce .obrazkyProAkci {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 body main.detail-akce .obrazkyProAkci .image {
-  position: relative;
-  width: 100%;
+  width: 90%;
+  margin: 40px;
 }
 body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
   position: absolute;
   width: 48px;
+  top: 50%;
+}
+body main.detail-akce .obrazkyProAkci .arrow1 {
+  left: 7%;
+}
+body main.detail-akce .obrazkyProAkci .arrow2 {
+  rotate: 180deg;
+  right: 7%;
 }
 body footer {
   background-color: #0C1844;

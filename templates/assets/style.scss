@@ -355,14 +355,15 @@ body {
                 }
             }
 
-            .waypoint4 {
-                left: 29.8696421181%;
-                bottom: 51.1729478723%;
+            // Pokus o automatizaci souřadnic na mapu
+            // .waypoint4 {
+            //     left: 29.8696421181%;
+            //     bottom: 51.1729478723%;
 
-                &:hover {
-                    top: 51.5%;
-                }
-            }
+            //     &:hover {
+            //         top: 51.5%;
+            //     }
+            // }
         }
 
         section {
@@ -534,20 +535,24 @@ body {
         .obrazkyProAkci {
             display: flex;
             justify-content: center;
+            position: relative;
+
             .image {
-                position: relative;
-                width: 100%;
+                width: 90%;
+                margin: 40px;
             }
             .arrow1, .arrow2 {
                 position: absolute;
                 width: 48px;
+                top: 50%;
             }
 
             .arrow1 {
-
+                left: 7%;
             }
             .arrow2 {
-                
+                rotate: 180deg;
+                right: 7%;
             }
         }
     }
