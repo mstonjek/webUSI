@@ -28,5 +28,5 @@ include_once("../includes/header.php");
         <a href="editEvent.php?event_id=<?php $event["eventID"] ?>">Upravit</a>
         <hr>
     </div>
-<?php endforeach; ?>
-
+<?php endforeach;
+include_once("../includes/footer.php");

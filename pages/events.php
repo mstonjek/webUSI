@@ -11,3 +11,6 @@ $database = new \repository\Database();
 $events = $database->getAllEvents();
 include_once("../includes/header.php");
 ?>
+
+<?php
+    include_once("../includes/footer.php");

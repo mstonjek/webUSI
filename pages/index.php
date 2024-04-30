@@ -23,6 +23,7 @@ include_once("../includes/header.php");
 <h1><?php $events["location"] ?></h1>
 <h1><?php $events["description"] ?></h1>
 <a href="event.php?event_id=<?php $events["eventID"]?>">Více</a>
-
+<?php
+    include_once("../includes/footer.php");
 
 
