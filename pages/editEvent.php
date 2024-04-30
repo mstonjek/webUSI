@@ -21,6 +21,8 @@
 
     $event = $database->getEventById($event_id);
 
+
+
     ?>
 
 <form action="../backend/UploadEvents.php" method="POST">
@@ -31,7 +33,7 @@
     <textarea name="description" cols="30" rows="10"><?php echo $event["description"]; ?></textarea>
     <button name="submit">Upravit</button>
 </form>
-<a href="./events.php">Zpět</a>
+<a href="./editEvents.php">Zpět</a>
 
 <?php
     include_once("../includes/footer.php");

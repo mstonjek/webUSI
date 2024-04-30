@@ -2,6 +2,8 @@
 
 namespace backend;
 
+    session_start();
+
 
     use repository\Database;
 
@@ -16,35 +18,38 @@ class UploadEvents
         $this->database = $database;
     }
 
-    public function uploadEvent(int $eventID, string $title, string $location, string $description): void
+    public function uploadEvent(int|null $eventID, string $title, string $date, string $location, string $description): void
     {
-        if ( $this->database->getEventById($eventID) !== null ) {
-            $this->database->editEvent($eventID, $title, $location, $description);
-            header("location: ../pages/editEvents.php");
-            exit();
+        if ($eventID !== null) {
+
+            $this->database->editEvent($eventID, $title, $date, $location, $description, $_SESSION['userID']);
         } else {
-            header("location: ../pages/editEvents.php?error=idNotFound");
-            exit();
+            $this->database->addEvent($title, $date, $location, $description, $_SESSION['userID']);
         }
+        header("location: ../pages/editEvents.php");
+        exit();
     }
 }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $eventID = $_POST["eventID"];
+
+        $eventID = isset($_POST["eventID"]) ? $_POST["eventID"] : null;
         $title = $_POST["title"];
         $location = $_POST["location"];
-        //$date = new DateTime($_POST["date"]);
+        $date = $_POST["date"];
         $description = $_POST["description"];
 
-        if (!empty($title) && !empty($location) && !empty($description)) {
-            try {
+        if (!empty($title) && !empty($location) && !empty($date) && !empty($description)) {
                 $database = new Database();
-                $loginSession = new UploadEvents($database);
-                $loginSession->uploadEvent($eventID, $title, $location, $description);
-            } catch (\Exception $e) {
-                error_log("Error: " . $e->getMessage());
-                header('location: ../pages/login.php?error=databaseError');
-                exit();
+                $uploadEvents = new UploadEvents($database);
+                $uploadEvents->uploadEvent($eventID, $title, $date, $location, $description);
+
+        } else {
+            header('location: ../pages/admin.php?error=emptyFields');
+            exit();
+
+
             }
-        }
+
+
     }

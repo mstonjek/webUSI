@@ -36,18 +36,31 @@
         }
     }
 
-    public function authenticateUser(string $username, string $password): bool
-    {
-        $query = "SELECT * FROM `usi_admin` WHERE `username` = :username";
-        $params = [
-            "username" => $username
-        ];
+        public function authenticateUser(string $username, string $password): ?int
+        {
+            $query = "SELECT `adminID`, `password` FROM `usi_admin` WHERE `username` = :username";
+            $params = [
+                "username" => $username
+            ];
 
-        $stmt = $this->query($query, $params);
-        $hashedPassword = $stmt->fetchColumn(2);
+            $stmt = $this->query($query, $params);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $hashedPassword && password_verify($password, $hashedPassword);
-    }
+            if (!$user) {
+                return null;
+            }
+
+            $hashedPassword = $user['password'];
+            $userID = $user['adminID'];
+
+            if (password_verify($password, $hashedPassword)) {
+                // Authentication successful, return the user ID
+                return $userID;
+            }
+
+            // Authentication failed
+            return null;
+        }
 
     public function getEventById(int $id): array
     {
@@ -58,14 +71,31 @@
         return $event;
     }
 
-    public function editEvent(int $eventID, string $title, string $description, string $location): void
+    public function addEvent(string $title, string $date, string $location,  string $description, int $userID): void
+        {
+            $query = "INSERT INTO usi_event (title, location, date, description, authorID) VALUES (:title, :location, :date, :description, :userID)";
+            $params = [
+                'title' => $title,
+                'location' => $location,
+                'date' => $date,
+                "description" => $description,
+                "userID" => $userID
+            ];
+
+            $stmt = $this->query($query, $params);
+        }
+
+
+        public function editEvent(int $eventID, string $title, string $date, string $description, string $location, int $userID): void
     {
-        $query = "UPDATE usi_event SET title = :title, location = :location, description = :description WHERE eventID = :eventID";
+        $query = "UPDATE usi_event SET title = :title, date = :date, location = :location, description = :description, authorID = :userID WHERE eventID = :eventID";
         $params = [
             'title' => $title,
+            "date" => $date,
             'location' => $location,
             'description' => $description,
-            'eventID' => $eventID
+            'eventID' => $eventID,
+            "userID" => $userID
         ];
         $stmt = $this->query($query, $params);
     }

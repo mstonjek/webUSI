@@ -22,8 +22,9 @@ class Login
     public function loginUser(string $username, string $password): void
     {
         $user = $this->database->authenticateUser($username, $password);
-        if ($user) {
-            $_SESSION['isLogin'] = $user;
+        if ($user !== null) {
+            $_SESSION['isLogin'] = true;
+            $_SESSION['userID'] = $user;
             header('location: ../pages/admin.php');
             exit();
         } else {
