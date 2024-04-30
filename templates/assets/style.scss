@@ -17,10 +17,6 @@ $pageMargin: 100px;
     font-family: 'Open Sans', sans-serif;
 }
 
-html{
-    scroll-behavior: smooth;
-}
-
 a#logo {
     margin-top: 16px;
     width: 94px;
@@ -43,6 +39,29 @@ a#logo {
     font-weight: 500;
     border-radius: 13px;
     gap: 5px;
+}
+
+.tag {
+    background: #D9D9D9;
+    color: black;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.button {
+    background-color: $darkOrange;
+    border-radius: 13px;
+    font-size: 28px;
+    width: fit-content;
+    padding: 11px 30px 11px 30px;
+
+    p {
+        color: $baby;
+    }
 }
 
 .highlight {
@@ -93,18 +112,6 @@ body {
                             transition: 0.3s;
                         }
                     }
-                }
-                
-                li:last-child{
-                    background-color: $darkOrange;
-                    border-radius: 5px;
-                    &:hover{
-                        color: $pennDark;
-                    }
-                }
-
-                li#selected{
-                    border-bottom: 5px solid $polly;
                 }
             }
         }
@@ -347,6 +354,15 @@ body {
                     top: 51.5%;
                 }
             }
+
+            .waypoint4 {
+                left: 29.8696421181%;
+                bottom: 51.1729478723%;
+
+                &:hover {
+                    top: 51.5%;
+                }
+            }
         }
 
         section {
@@ -417,6 +433,7 @@ body {
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
+
             p {
                 margin: 0px;
                 font-size: 24px;
@@ -427,22 +444,83 @@ body {
             div {
                 display: flex;
                 justify-content: space-between;
+
                 div {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: left;
-    
+
                     .logoskoly {
                         width: 148px;
                         height: 148px;
                     }
-    
+
                     p {
                         margin: auto;
                     }
                 }
             }
+        }
+    }
+
+    main.chci-se-pripojit {
+        min-height: calc(100vh - 110px);
+        margin-top: 40px;
+        color: $baby;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+        }
+        .navodNaPripojeni {
+            font-size: 28px;
+            h1 {
+                margin-bottom: 20px;
+            }
+            ul {
+                margin-left: 60px;
+            }
+            padding: 40px;
+            background: $pennLight;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 69%;
+        }
+        .button {
+            margin-bottom: 10vh;
+        }
+    }
+
+    main.detail-akce {
+        color: $pennDark;
+        section {
+            margin-left: $pageMargin;
+            margin-right: $pageMargin;
+        }
+        div {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        .shortInfoProAkci {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tagyProAkci {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
         }
     }
 
@@ -547,6 +625,7 @@ body {
     .logo {
         fill: $darkOrange;
     }
+
     .back_button {
         background-color: $darkOrange;
     }
@@ -572,9 +651,6 @@ body {
                     border: #00000012 1px solid;
                 }
 
-                li#selected{
-                    border-bottom: 5px solid $darkOrange;
-                }
             }
         }
 
@@ -625,11 +701,16 @@ body {
         h1 {
             color: $darkOrange !important;
         }
+
         p {
             color: $baby !important;
         }
     }
-}
-body header nav ul li:last-child a:hover {
-    color: $pennDark;
+
+    main.chci-se-pripojit {
+        .navodNaPripojeni {
+            color: $pennDark;
+            background: white !important;
+        }
+    }
 }
