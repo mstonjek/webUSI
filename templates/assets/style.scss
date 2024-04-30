@@ -477,20 +477,25 @@ body {
         a {
             text-decoration: none;
         }
+
         .navodNaPripojeni {
             font-size: 28px;
+
             h1 {
                 margin-bottom: 20px;
             }
+
             ul {
                 margin-left: 60px;
             }
+
             padding: 40px;
             background: $pennLight;
             margin-top: 40px;
             margin-bottom: 40px;
             width: 69%;
         }
+
         .button {
             margin-bottom: 10vh;
         }
@@ -498,14 +503,17 @@ body {
 
     main.detail-akce {
         color: $pennDark;
+
         section {
             margin-left: $pageMargin;
             margin-right: $pageMargin;
         }
+
         div {
             margin-top: 15px;
             margin-bottom: 15px;
         }
+
         h1 {
             font-size: 64px;
             font-weight: bold;
@@ -521,6 +529,26 @@ body {
             display: flex;
             flex-direction: row;
             gap: 20px;
+        }
+
+        .obrazkyProAkci {
+            display: flex;
+            justify-content: center;
+            .image {
+                position: relative;
+                width: 100%;
+            }
+            .arrow1, .arrow2 {
+                position: absolute;
+                width: 48px;
+            }
+
+            .arrow1 {
+
+            }
+            .arrow2 {
+                
+            }
         }
     }
 
@@ -711,6 +739,14 @@ body {
         .navodNaPripojeni {
             color: $pennDark;
             background: white !important;
+        }
+    }
+
+    main.detail-akce {
+
+        h1,
+        p {
+            color: $baby;
         }
     }
 }
