@@ -18,7 +18,7 @@ $pageMargin: 100px;
     font-family: 'Open Sans', sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     transition: transform 0.5s ease;
 }
@@ -81,6 +81,7 @@ a#logo {
 
 body {
     min-height: 130vh;
+    background-color: $baby;
 
     header {
         height: 110px;
@@ -278,28 +279,30 @@ body {
         }
     }
 
-    main.probehle-akce{
-        h1:first-child{
+    main.probehle-akce {
+        h1:first-child {
             font-size: 3.5rem;
             margin: 5rem 1rem 3rem 1rem;
         }
-        button{
+
+        button {
             font-weight: normal;
             color: $black;
             background-color: $secondGray;
             border-radius: 13px;
             padding: 3px 45px;
-            
+
         }
 
-        .carousel{
+        .carousel {
             margin: 1rem 3rem;
         }
 
-        li.carouselImage{
+        li.carouselImage {
             display: inline;
         }
-        section:first-child{
+
+        section:first-child {
             margin-bottom: 3rem;
         }
 
@@ -574,7 +577,9 @@ body {
                 width: 90%;
                 margin: 40px;
             }
-            .arrow1, .arrow2 {
+
+            .arrow1,
+            .arrow2 {
                 position: absolute;
                 width: 48px;
                 top: 50%;
@@ -583,14 +588,90 @@ body {
             .arrow1 {
                 left: 7%;
             }
+
             .arrow2 {
                 rotate: 180deg;
                 right: 7%;
             }
         }
     }
+
     main.login {
         min-height: calc(100vh - 110px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form, div, input, button {
+            margin: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: $pennLight;
+            border-radius: 45px;
+            padding: $pageMargin;
+
+            input {
+                width: 100%;
+            }
+            button {
+                width: 80%;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        h1 {
+            color: $baby;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        p {
+            color: $baby;
+        }
+
+        .checkbox {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            p {
+                font-size: 18px;
+            }
+            input {
+                width: auto;
+            }
+        }
+    }
+    main.admin-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            color: $pennDark;
+        }
+
+        div {
+            background-color: $pennDark;
+
+            div {
+                background-color: $baby;
+            }
+        }
     }
 
     footer {
@@ -699,6 +780,14 @@ body {
         background-color: $darkOrange;
     }
 
+    input {
+        color: $baby !important;
+        background-color: $gray !important;
+    }
+    ::placeholder {
+        color: $baby !important;
+    }
+
     body {
         background-color: $pennLight;
 
@@ -743,8 +832,8 @@ body {
         }
     }
 
-    main.probehle-akce{
-        *{
+    main.probehle-akce {
+        * {
             color: $baby;
         }
     }
@@ -794,6 +883,15 @@ body {
         h1,
         p {
             color: $baby;
+        }
+    }
+
+    main.login {
+        h1, p {
+            color: $pennDark !important;
+        }
+        form {
+            background-color: $baby !important;
         }
     }
 }
