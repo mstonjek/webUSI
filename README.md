@@ -23,12 +23,12 @@ Následující kroky vysvětlují, jak spustit tento projekt na vašem lokální
 ### 4. Import databáze - Zatím ve vývoji
 
 - Otevřete webový prohlížeč a přejděte na adresu `http://localhost/phpmyadmin`.
-- V sekci `Databases` vytvořte novou databázi s názvem `usi_database`.
+- V sekci `Databases` vytvořte novou databázi s názvem `usi`.
 - Klikněte na vytvořenou databázi a zvolte zálohu.
 - Načtěte databázový soubor z adresáře projektu `usi_database.sql` (pokud je k dispozici) nebo importujte strukturu databáze z jiného zdroje.
 
 ### 5. Spuštění webové stránky
 
-- Otevřete webový prohlížeč a přejděte na adresu `http://localhost/usi-website`.
+- Otevřete webový prohlížeč a přejděte na adresu `http://localhost/webUSI/pages`.
 - Měli byste vidět domovskou stránku webové stránky UŠI.
 - Prozkoumejte různé části webu, včetně členů, aktualit, akcí
