@@ -6,8 +6,9 @@
     use PDOException;
     use Relay\Event;
 
-    require_once "../config/config.php";
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/webUSI/config/config.php";
 
+    // For local dev
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);

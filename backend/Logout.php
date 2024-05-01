@@ -12,7 +12,7 @@ class Logout
         unset($_SESSION['isLogin']);
         unset($_SESSION['user_id']);
         session_destroy();
-        header('location: ../pages/');
+        header('location: /webUSI/login?LogoutSuccess');
         exit();
     }
 

@@ -7,7 +7,7 @@ namespace backend;
 
     use repository\Database;
 
-    require_once "../repository/Database.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/webUSI/repository/Database.php";
 
 class UploadEvents
 {
@@ -26,7 +26,7 @@ class UploadEvents
         } else {
             $this->database->addEvent($title, $date, $location, $description, $_SESSION['user_id']);
         }
-        header("location: ../pages/editEvents.php");
+        header("location: /webUSI/editEvents");
         exit();
     }
 }
@@ -45,7 +45,7 @@ class UploadEvents
                 $uploadEvents->uploadEvent($eventId, $title, $date, $location, $description);
 
         } else {
-            header('location: ../pages/admin.php?error=emptyFields');
+            header('location: /webUSI/admin?EmptyFields');
             exit();
 
 

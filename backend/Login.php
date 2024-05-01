@@ -6,7 +6,7 @@
 
     session_start();
 
-    require_once "../repository/Database.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/webUSI/repository/Database.php";
 
 
 
@@ -25,10 +25,10 @@ class Login
         if ($user !== null) {
             $_SESSION['isLogin'] = true;
             $_SESSION['user_id'] = $user;
-            header('location: ../pages/admin.php');
+            header('location: /webUSI/admin?LoginSuccess');
             exit();
         } else {
-            header('location: ../pages/');
+            header('location: /webUSI/login?LoginFailed');
             exit();
         }
     }
@@ -46,12 +46,12 @@ class Login
                 $loginSession->loginUser($username, $password);
             } catch (\Exception $e) {
                 error_log("Error: " . $e->getMessage());
-                header('location: ../pages/login.php?error=databaseError');
+                header('location: /webUSI/login?DatabaseError');
                 exit();
             }
 
         } else {
-            header('location: ../pages/login.php?error=emptyInput');
+            header('location: /webUSI/login?EmptyInput');
             exit();
         }
     }

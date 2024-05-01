@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /webUSI/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/?$ pages/$1.php [L]
+
+ErrorDocument 404 /webUSI/pages/error404.php
+DirectoryIndex pages/index.php
+

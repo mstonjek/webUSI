@@ -1,5 +1,5 @@
 <?php
-    include_once("../includes/header.php");
+    include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/header.php");
 
 ?>
 <main class="chci-se-pripojit">
@@ -11,7 +11,7 @@
             </ul>
         </div>
         <a href="..">
-            <a target="_blank" href="../templates/assets/Podminky_pro_prijeti.pdf">
+            <a target="_blank" href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/assets/Podminky_pro_prijeti.pdf">
                 <div class="button">
                     <p>Stáhnout podmínky</p>
                 </div>
@@ -19,4 +19,4 @@
         </a>
     </main>
 <?php
-    include_once("../includes/footer.php");
+    include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/footer.php");
