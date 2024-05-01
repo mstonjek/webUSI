@@ -25,7 +25,7 @@ include_once("../includes/headerAdmin.php");
         <h1><?php echo $event["title"]; ?></h1>
         <p>Location: <?php echo $event["location"]; ?></p>
         <span>Date: <?php echo $event["date"]; ?></span>
-        <a href="./editEvent.php?event_id=<?php echo $event["eventID"]; ?>">Upravit</a>
+        <a href="./editEvent.php?eventId=<?php echo $event["event_id"]; ?>">Upravit</a>
         <hr>
     </div>
 <?php endforeach;

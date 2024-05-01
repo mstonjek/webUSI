@@ -24,7 +24,7 @@ class Login
         $user = $this->database->authenticateUser($username, $password);
         if ($user !== null) {
             $_SESSION['isLogin'] = true;
-            $_SESSION['userID'] = $user;
+            $_SESSION['user_id'] = $user;
             header('location: ../pages/admin.php');
             exit();
         } else {

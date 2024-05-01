@@ -10,7 +10,7 @@ class Logout
     public function logoutUser(): void
     {
         unset($_SESSION['isLogin']);
-        unset($_SESSION['userID']);
+        unset($_SESSION['user_id']);
         session_destroy();
         header('location: ../pages/');
         exit();

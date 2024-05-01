@@ -25,7 +25,7 @@ include_once("../includes/header.php");
         <p>Location: <?php echo $event["location"]; ?></p>
         <span>Date: <?php echo $event["date"]; ?></span>
         <p><?php echo substr($event["description"], 0, 30).".."; ?></p>
-        <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>"><button>Celý článek</button> </a>
+        <a href="./event.php?eventId=<?php echo $event["event_id"]; ?>"><button>Celý článek</button> </a>
     </div>
 <?php endforeach; ?>
 

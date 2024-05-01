@@ -17,7 +17,7 @@ include_once("../includes/header.php");
         <h1><?php echo $event["title"]; ?></h1>
         <p>Location: <?php echo $event["location"]; ?></p>
         <span>Date: <?php echo $event["date"]; ?></span>
-        <a href="./event.php?event_id=<?php echo $event["eventID"]; ?>">Více</a>
+        <a href="./event.php?eventId=<?php echo $event["event_id"]; ?>">Více</a>
     </div>
 <?php endforeach; ?>
 

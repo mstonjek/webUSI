@@ -7,13 +7,13 @@
     require_once "../repository/Database.php";
 
     $database = new \repository\Database();
-    $event_id = isset($_GET['event_id']) ? $_GET['event_id'] : null;
-    if ($event_id === null) {
+    $eventId = isset($_GET['eventId']) ? $_GET['eventId'] : null;
+    if ($eventId === null) {
         header("location: index.php?error=eventIdDoesNotExist");
         exit();
     }
 
-    $event = $database->getEventById($event_id);
+    $event = $database->getEventById($eventId);
     include_once("../includes/header.php");
     ?>
 

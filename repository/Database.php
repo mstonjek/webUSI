@@ -38,7 +38,7 @@
 
         public function authenticateUser(string $username, string $password): ?int
         {
-            $query = "SELECT `adminID`, `password` FROM `usi_admin` WHERE `username` = :username";
+            $query = "SELECT `admin_id`, `password` FROM `admin` WHERE `username` = :username";
             $params = [
                 "username" => $username
             ];
@@ -51,58 +51,56 @@
             }
 
             $hashedPassword = $user['password'];
-            $userID = $user['adminID'];
+            $userId = $user['admin_id'];
 
             if (password_verify($password, $hashedPassword)) {
-                // Authentication successful, return the user ID
-                return $userID;
+                return $userId;
             }
 
-            // Authentication failed
             return null;
         }
 
-    public function getEventById(int $id): array
+    public function getEventById(int $eventId): array
     {
-        $query = "SELECT * FROM `usi_event` WHERE `eventID` = :id";
-        $params = [ "id" => $id ];
+        $query = "SELECT * FROM `event` WHERE `event_id` = :eventId";
+        $params = [ "eventId" => $eventId ];
         $stmt = $this->query($query, $params);
         $event = $stmt->fetch();
         return $event;
     }
 
-    public function addEvent(string $title, string $date, string $location,  string $description, int $userID): void
+    public function addEvent(string $title, string $date, string $location,  string $description, int $adminId): void
         {
-            $query = "INSERT INTO usi_event (title, location, date, description, authorID) VALUES (:title, :location, :date, :description, :userID)";
+            $query = "INSERT INTO event (title, location, date, description, author_id) VALUES (:title, :location, :date, :description, :authorId)";
             $params = [
                 'title' => $title,
                 'location' => $location,
                 'date' => $date,
                 "description" => $description,
-                "userID" => $userID
+                "authorId" => $adminId
             ];
 
             $stmt = $this->query($query, $params);
         }
 
 
-        public function editEvent(int $eventID, string $title, string $date, string $description, string $location, int $userID): void
+        public function editEvent(int $eventId, string $title, string $date, string $description, string $location, int $adminId): void
     {
-        $query = "UPDATE usi_event SET title = :title, date = :date, location = :location, description = :description, authorID = :userID WHERE eventID = :eventID";
+        $query = "UPDATE event SET title = :title, date = :date, location = :location, description = :description, author_id = :authorId WHERE event_id = :eventId";
         $params = [
             'title' => $title,
             "date" => $date,
             'location' => $location,
             'description' => $description,
-            'eventID' => $eventID,
-            "userID" => $userID
+            'eventId' => $eventId,
+            "authorId" => $adminId
         ];
         $stmt = $this->query($query, $params);
     }
 
     public function getAllEvents(): array
     {
-        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC";
+        $query = "SELECT * FROM `event` ORDER BY `date` DESC";
         $stmt = $this->pdo->query($query);
         $events = $stmt->fetchAll();
         return $events;
@@ -111,7 +109,7 @@
 
     public function getEventsForEvents(): array
     {
-        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 6";
+        $query = "SELECT * FROM `event` ORDER BY `date` DESC LIMIT 6";
         $stmt = $this->pdo->query($query);
         $events = $stmt->fetchAll();
         return $events;
@@ -119,7 +117,7 @@
 
     public function getEventsForHomepage(): array
     {
-        $query = "SELECT * FROM `usi_event` ORDER BY `date` DESC LIMIT 2";
+        $query = "SELECT * FROM `event` ORDER BY `date` DESC LIMIT 2";
         $stmt = $this->pdo->query($query);
         $events = $stmt->fetchAll();
         return $events;
