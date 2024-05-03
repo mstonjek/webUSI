@@ -2,6 +2,7 @@
     namespace repository;
 
     use Cassandra\Date;
+    use http\Params;
     use PDO;
     use PDOException;
     use Relay\Event;
@@ -70,7 +71,7 @@
         return $event;
     }
 
-    public function addEvent(string $title, string $date, string $location,  string $description, int $adminId): void
+    public function addEvent(string $title, string $date, string $location,  string $description, int $adminId, array $fileNames): void
         {
             $query = "INSERT INTO event (title, location, date, description, author_id) VALUES (:title, :location, :date, :description, :authorId)";
             $params = [
@@ -80,24 +81,25 @@
                 "description" => $description,
                 "authorId" => $adminId
             ];
-
             $stmt = $this->query($query, $params);
+            $eventId = $this->pdo->lastInsertId();
+
+            $this->uploadImages($fileNames, $eventId);
         }
 
-
         public function editEvent(int $eventId, string $title, string $date, string $description, string $location, int $adminId): void
-    {
-        $query = "UPDATE event SET title = :title, date = :date, location = :location, description = :description, author_id = :authorId WHERE event_id = :eventId";
-        $params = [
-            'title' => $title,
-            "date" => $date,
-            'location' => $location,
-            'description' => $description,
-            'eventId' => $eventId,
-            "authorId" => $adminId
-        ];
-        $stmt = $this->query($query, $params);
-    }
+        {
+            $query = "UPDATE event SET title = :title, date = :date, location = :location, description = :description, author_id = :authorId WHERE event_id = :eventId";
+            $params = [
+                'title' => $title,
+                "date" => $date,
+                'location' => $location,
+                'description' => $description,
+                'eventId' => $eventId,
+                "authorId" => $adminId
+            ];
+            $stmt = $this->query($query, $params);
+        }
 
     public function getAllEvents(): array
     {
@@ -130,5 +132,19 @@
         return $stmt;
     }
 
+    private function uploadImages(array $imageNames, int $eventId): void
+    {
+        foreach ($imageNames as $imageName) {
+            $query = "INSERT INTO image (url, isVideo, event_id) VALUES (:url, :isVideo, :eventId)";
+            $params = [
+                "url" => $imageName,
+                "isVideo" => 0,
+                "eventId" => $eventId
+            ];
+
+            $this->query($query, $params);
+
+        }
+    }
 
 }
