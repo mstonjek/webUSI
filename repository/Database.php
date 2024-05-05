@@ -71,6 +71,29 @@
         return $event;
     }
 
+    public function deleteImageByIdAndGetURL(int $imageId): string
+    {
+        $query = "SELECT `url` FROM `image` WHERE `image_id` = :imageId";
+        $params = [ "imageId" => $imageId ];
+        $stmt = $this->query($query, $params);
+        $url = $stmt->fetchColumn();
+
+        $query = "DELETE FROM `image` WHERE `image_id` = :imageId";
+        $params = [ "imageId" => $imageId ];
+        $stmt = $this->query($query, $params);
+
+        return $url;
+    }
+
+    public function getImagesByEventId(int $eventId): array
+    {
+        $query = "SELECT * FROM `image` WHERE `event_id` = :eventId";
+        $params = [ "eventId" => $eventId ];
+        $stmt = $this->query($query, $params);
+        $images = $stmt->fetchAll();
+        return $images;
+    }
+
     public function addEvent(string $title, string $date, string $location,  string $description, int $adminId, array $fileNames): void
         {
             $query = "INSERT INTO event (title, location, date, description, author_id) VALUES (:title, :location, :date, :description, :authorId)";
@@ -84,10 +107,10 @@
             $stmt = $this->query($query, $params);
             $eventId = $this->pdo->lastInsertId();
 
-            $this->uploadImages($fileNames, $eventId);
+            $this->uploadImages($fileNames, $eventId, true);
         }
 
-        public function editEvent(int $eventId, string $title, string $date, string $description, string $location, int $adminId): void
+        public function editEvent(int $eventId, string $title, string $date, string $description, string $location, int $adminId, array $fileNames): void
         {
             $query = "UPDATE event SET title = :title, date = :date, location = :location, description = :description, author_id = :authorId WHERE event_id = :eventId";
             $params = [
@@ -99,6 +122,8 @@
                 "authorId" => $adminId
             ];
             $stmt = $this->query($query, $params);
+
+            $this->uploadImages($fileNames, $eventId, false);
         }
 
     public function getAllEvents(): array
@@ -126,25 +151,41 @@
         return $events;
     }
 
+    private function isEventWithoutImage(int $eventId): bool
+    {
+        $query = "SELECT * FROM `image` WHERE `event_id` = :eventId";
+        $params = [ "eventId" => $eventId ];
+        $stmt = $this->query($query, $params);
+        $images = $stmt->fetchAll();
+        if (empty($images)) {
+            return true;
+        }
+        return false;
+    }
+
     private function query($query, $params) {
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt;
     }
 
-    private function uploadImages(array $imageNames, int $eventId): void
+    private function uploadImages(array $imageNames, int $eventId, bool $isAddition): void
     {
-        foreach ($imageNames as $imageName) {
-            $query = "INSERT INTO image (url, isVideo, event_id) VALUES (:url, :isVideo, :eventId)";
-            $params = [
-                "url" => $imageName,
-                "isVideo" => 0,
-                "eventId" => $eventId
-            ];
+            foreach ($imageNames as $imageName) {
+                if ($imageName === "image_default.png" && !$isAddition && !$this->isEventWithoutImage($eventId)) {
+                    continue;
+                }
+                $query = "INSERT INTO image (url, isVideo, event_id) VALUES (:url, :isVideo, :eventId)";
+                $params = [
+                    "url" => $imageName,
+                    "isVideo" => 0,
+                    "eventId" => $eventId
+                ];
 
-            $this->query($query, $params);
+                $this->query($query, $params);
 
-        }
+            }
+
     }
 
 }

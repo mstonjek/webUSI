@@ -22,10 +22,12 @@ class UploadEvents
         $this->database = $database;
     }
 
-    public function uploadEvent(int|null $eventId, string $title, string $date, string $location, string $description, $files): void
+    public function uploadEvent(int|null $eventId, string $title, string $date, string $location, string $description, $files, array|null $checkedImages): void
     {
         if ($eventId !== null) {
-            $this->database->editEvent($eventId, $title, $date, $location, $description, $_SESSION['user_id']);
+            $imageNames = $this->uploadImages($files);
+            $this->replaceImages($checkedImages, $eventId);
+            $this->database->editEvent($eventId, $title, $date, $location, $description, $_SESSION['user_id'], $imageNames);
         } else {
             $imageNames = $this->uploadImages($files);
             $this->database->addEvent($title, $date, $location, $description, $_SESSION['user_id'], $imageNames);
@@ -35,13 +37,29 @@ class UploadEvents
         exit();
     }
 
+    private function replaceImages(array|null $checkedImages, int $eventId): void
+    {
+        $allEventImages = $this->database->getImagesByEventId($eventId);
+        foreach ($allEventImages as $image) {
+            if ($checkedImages === null || !in_array($image["image_id"], $checkedImages)) {
+                $url = $this->database->deleteImageByIdAndGetURL($image["image_id"]);
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/webUSI/uploads/" . $url;
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+        }
+    }
+
+
     private function uploadImages($images): array
     {
         $imageNames = [];
 
-        if (!isset($images['tmp_name']) || !is_array($images['tmp_name'])) {
-            return ["image_default.jpg"];
+        if (!isset($images['tmp_name']) || count(array_filter($images['tmp_name'])) === 0) {
+            return ["image_default.png"];
         }
+
 
         foreach ($images['tmp_name'] as $key => $tmp_name) {
             if (!is_uploaded_file($tmp_name)) {
@@ -78,6 +96,7 @@ class UploadEvents
         $date = $_POST["date"];
         $description = $_POST["description"];
         $images = isset($_FILES["images"]) ? $_FILES["images"] : null;
+        $oldImages = isset($_POST["oldImages"]) ? $_POST["oldImages"] : null;
 
         $database = new Database();
         $uploadEvents = new UploadEvents($database);
@@ -92,5 +111,5 @@ class UploadEvents
             exit();
         }
 
-        $uploadEvents->uploadEvent($eventId, $title, $date, $location, $description, $images);
+        $uploadEvents->uploadEvent($eventId, $title, $date, $location, $description, $images, $oldImages);
     }
