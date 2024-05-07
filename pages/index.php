@@ -14,10 +14,25 @@
 
 
     $database = new \repository\Database();
-    $events = $database->getEventsForHomepage();
+    $events = $database->getEvents(2);
 
     include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/header.php");
 ?>
+
+<style>
+    #image-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .preview-image {
+        margin: 5px;
+        max-width: 200px;
+        max-height: 200px;
+    }
+</style>
+
 
 <?php foreach ($events as $event): ?>
     <div>
@@ -25,6 +40,14 @@
         <p>Location: <?php echo $event["location"]; ?></p>
         <span>Date: <?php echo $event["date"]; ?></span>
         <p><?php echo substr($event["description"], 0, 30).".."; ?></p>
+        <?php
+            $imageUrls = explode(",", $event["url"]);
+            foreach ($imageUrls as $imageUrl):
+                ?>
+                <div id="image-preview">
+                    <img class="preview-image" src="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/uploads/<?php echo trim($imageUrl); ?>" alt="<?php $event["title"] ?>">
+                </div>
+        <?php endforeach; ?>
         <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/event?eventId=<?php echo $event["event_id"]; ?>"><button>Celý článek</button> </a>
     </div>
 <?php endforeach; ?>

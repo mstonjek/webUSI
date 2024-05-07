@@ -38,29 +38,29 @@
         }
     }
 
-        public function authenticateUser(string $username, string $password): ?int
-        {
-            $query = "SELECT `admin_id`, `password` FROM `admin` WHERE `username` = :username";
-            $params = [
-                "username" => $username
-            ];
+    public function authenticateUser(string $username, string $password): ?int
+    {
+        $query = "SELECT `admin_id`, `password` FROM `admin` WHERE `username` = :username";
+        $params = [
+            "username" => $username
+        ];
 
-            $stmt = $this->query($query, $params);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->query($query, $params);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if (!$user) {
-                return null;
-            }
-
-            $hashedPassword = $user['password'];
-            $userId = $user['admin_id'];
-
-            if (password_verify($password, $hashedPassword)) {
-                return $userId;
-            }
-
+        if (!$user) {
             return null;
         }
+
+        $hashedPassword = $user['password'];
+        $userId = $user['admin_id'];
+
+        if (password_verify($password, $hashedPassword)) {
+            return $userId;
+        }
+
+        return null;
+    }
 
     public function getEventById(int $eventId): array
     {
@@ -126,30 +126,19 @@
             $this->uploadImages($fileNames, $eventId, false);
         }
 
-    public function getAllEvents(): array
-    {
-        $query = "SELECT * FROM `event` ORDER BY `date` DESC";
-        $stmt = $this->pdo->query($query);
-        $events = $stmt->fetchAll();
-        return $events;
-    }
+        public function getEvents($limit = null): array
+        {
+            $limitClause = ($limit !== null) ? "LIMIT $limit" : "";
+            $query = "SELECT e.*, GROUP_CONCAT(i.url) AS url 
+              FROM `event` e 
+              LEFT JOIN `image` i ON e.event_id = i.event_id 
+              GROUP BY e.event_id 
+              ORDER BY e.`date` DESC $limitClause";
+            $stmt = $this->pdo->query($query);
+            $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $events;
+        }
 
-
-    public function getEventsForEvents(): array
-    {
-        $query = "SELECT * FROM `event` ORDER BY `date` DESC LIMIT 6";
-        $stmt = $this->pdo->query($query);
-        $events = $stmt->fetchAll();
-        return $events;
-    }
-
-    public function getEventsForHomepage(): array
-    {
-        $query = "SELECT * FROM `event` ORDER BY `date` DESC LIMIT 2";
-        $stmt = $this->pdo->query($query);
-        $events = $stmt->fetchAll();
-        return $events;
-    }
 
     private function isEventWithoutImage(int $eventId): bool
     {
