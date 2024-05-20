@@ -138,7 +138,12 @@
             $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $events;
         }
-
+        public function getSchools(): array{
+            $query = "SELECT `school_id`, `title` FROM `school`";
+            $stmt = $this->pdo->query($query);
+            $schools = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $schools;
+        }
 
     private function isEventWithoutImage(int $eventId): bool
     {
