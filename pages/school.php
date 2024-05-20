@@ -35,6 +35,8 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/header.php");
     <p><?php echo $school["headmaster"]; ?></p>
     <p><?php echo $school["address"]; ?></p>
     <p><?php echo $school["description"]; ?></p>
+    <img src="<?php echo $school["logoUrl"]; ?>" alt="School logo">
+    <a href="<?php echo $school["webUrl"]; ?>">Web školy</a>
 </div>
 
 <div id="image-preview">
