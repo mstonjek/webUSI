@@ -70,6 +70,14 @@
         $event = $stmt->fetch();
         return $event;
     }
+    public function getSchoolById(int $schoolId): array
+    {
+        $query = "SELECT * FROM `school` WHERE `school_id` = :schoolId";
+        $params = [ "schoolId" => $schoolId ];
+        $stmt = $this->query($query, $params);
+        $event = $stmt->fetch();
+        return $event;
+    }
 
     public function deleteImageByIdAndGetURL(int $imageId): string
     {
@@ -89,6 +97,14 @@
     {
         $query = "SELECT * FROM `image` WHERE `event_id` = :eventId";
         $params = [ "eventId" => $eventId ];
+        $stmt = $this->query($query, $params);
+        $images = $stmt->fetchAll();
+        return $images;
+    }
+    public function getImagesBySchoolId(int $schoolId): array
+    {
+        $query = "SELECT * FROM `image` WHERE `school_id` = :schoolId";
+        $params = [ "schoolId" => $schoolId ];
         $stmt = $this->query($query, $params);
         $images = $stmt->fetchAll();
         return $images;
