@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
 
+    <style>
         .login-container {
             background-color: #fff;
             padding: 20px;
@@ -54,8 +38,6 @@
             background-color: #0056b3;
         }
     </style>
-</head>
-<body>
 <div class="login-container">
     <h2>Login</h2>
     <form class="login-form" action="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/backend/Login.php" method="POST">
@@ -64,5 +46,3 @@
         <button type="submit">Login</button>
     </form>
 </div>
-</body>
-</html>

@@ -36,16 +36,12 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/headerAdmin.php");
 <?php foreach ($events as $event): ?>
     <div>
         <h1><?php echo $event["title"]; ?></h1>
-        <p>Location: <?php echo $event["location"]; ?></p>
-        <span>Date: <?php echo $event["date"]; ?>
             <?php
-                $imageUrls = explode(",", $event["url"]);
-                foreach ($imageUrls as $imageUrl):
+                $imageUrl = explode(",", $event["url"])[0];
             ?>
                     <div id="image-preview">
                         <img class="preview-image" src="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/uploads/<?php echo trim($imageUrl); ?>" alt="<?php $event["title"] ?>">
                     </div>
-                <?php endforeach; ?>
         <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/editEvent?eventId=<?php echo $event["event_id"]; ?>">Upravit</a>
         <hr>
     </div>

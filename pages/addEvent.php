@@ -12,6 +12,8 @@
 
     require_once $_SERVER["DOCUMENT_ROOT"] . "/webUSI/repository/Database.php";
     $database = new \repository\Database();
+    include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/header.php");
+
 
     ?>
 
@@ -30,10 +32,15 @@
 
 
         <form action="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/backend/UploadEvents.php" enctype="multipart/form-data" method="POST">
-            <input type="text" name="title"/>
-            <input type="date" name="date" />
-            <input type="text" name="location"/>
-            <textarea name="description" cols="30" rows="10"></textarea>
+            <label for="title">Název akce</label>
+            <input type="text" id="title" name="title"/>
+            <label for="date">Datum konání</label>
+            <input type="date" id="date" name="date" />
+            <label for="location"></label>
+            <input type="text" id="location" name="location"/>
+            <label for="desc">Popis</label>
+            <textarea name="description" id="desc" cols="30" rows="10"></textarea>
+            <label for="file-input">Obrázky</label>
             <div id="image-preview"></div>
             <input type="file" name="images[]" id="file-input" multiple>
             <button name="submit">Přidat</button>

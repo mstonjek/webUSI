@@ -2,8 +2,6 @@
 
 namespace backend;
 
-session_start();
-
 class Auth
 {
     public static function authorizeUser(): void
