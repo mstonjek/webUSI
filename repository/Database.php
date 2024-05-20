@@ -126,7 +126,7 @@
             $this->uploadImages($fileNames, $eventId, true);
         }
 
-        public function editEvent(int $eventId, string $title, string $date, string $description, string $location, int $adminId, array $fileNames): void
+        public function editEvent(int $eventId, string $title, string $date, string $location, string $description, int $adminId, array $fileNames): void
         {
             $query = "UPDATE event SET title = :title, date = :date, location = :location, description = :description, author_id = :authorId WHERE event_id = :eventId";
             $params = [
