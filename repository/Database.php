@@ -123,7 +123,7 @@
             $stmt = $this->query($query, $params);
             $eventId = $this->pdo->lastInsertId();
 
-            $this->uploadImages($fileNames, $eventId, true);
+            $this->uploadEventImages($fileNames, $eventId, true);
         }
 
         public function editEvent(int $eventId, string $title, string $date, string $location, string $description, int $adminId, array $fileNames): void
@@ -139,7 +139,39 @@
             ];
             $stmt = $this->query($query, $params);
 
-            $this->uploadImages($fileNames, $eventId, false);
+            $this->uploadEventImages($fileNames, $eventId, false);
+        }
+        public function addSchool(string $title, string $address, string $headmaster, string $web, string $description, string $logoUrl ,array $fileNames): void
+        {
+            $query = "INSERT INTO event (title, address, headmaster, webUrl, description, logoUrl) VALUES (:title, :address, :headmaster, :webUrl, :description, :logoUrl)";
+            $params = [
+                'title' => $title,
+                "address" => $address,
+                'headmaster' => $headmaster,
+                'webUrl' => $web,
+                'description' => $description,
+                'logoUrl' => $logoUrl,
+            ];
+            $stmt = $this->query($query, $params);
+            $schoolId = $this->pdo->lastInsertId();
+
+            $this->uploadSchoolImages($fileNames, $schoolId, true);
+        }
+        public function editSchool(int $schoolId, string $title, string $address, string $headmaster, string $web, string $description, string $logoUrl ,array $fileNames): void
+        {
+            $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :web, description = :description, logoUrl = :logoUrl WHERE school_id = :schoolId";
+            $params = [
+                'title' => $title,
+                "address" => $address,
+                'headmaster' => $headmaster,
+                'webUrl' => $web,
+                'description' => $description,
+                'logoUrl' => $logoUrl,
+                'schoolId' => $schoolId
+            ];
+            $stmt = $this->query($query, $params);
+
+            $this->uploadSchoolImages($fileNames, $schoolId, false);
         }
 
         public function getEvents($limit = null): array
@@ -176,6 +208,17 @@
         }
         return false;
     }
+    private function isSchoolWithoutImage(int $schoolId): bool
+    {
+        $query = "SELECT * FROM `image` WHERE `school_id` = :schoolId";
+        $params = [ "schoolId" => $schoolId ];
+        $stmt = $this->query($query, $params);
+        $images = $stmt->fetchAll();
+        if (empty($images)) {
+            return true;
+        }
+        return false;
+    }
 
     private function query($query, $params) {
         $stmt = $this->pdo->prepare($query);
@@ -183,7 +226,7 @@
         return $stmt;
     }
 
-    private function uploadImages(array $imageNames, int $eventId, bool $isAddition): void
+    private function uploadEventImages(array $imageNames, int $eventId, bool $isAddition): void
     {
             foreach ($imageNames as $imageName) {
                 if ($imageName === "image_default.png" && !$isAddition && !$this->isEventWithoutImage($eventId)) {
@@ -194,6 +237,24 @@
                     "url" => $imageName,
                     "isVideo" => 0,
                     "eventId" => $eventId
+                ];
+
+                $this->query($query, $params);
+
+            }
+
+    }
+    private function uploadSchoolImages(array $imageNames, int $schoolId, bool $isAddition): void
+    {
+            foreach ($imageNames as $imageName) {
+                if ($imageName === "image_default.png" && !$isAddition && !$this->isSchoolWithoutImage($schoolId)) {
+                    continue;
+                }
+                $query = "INSERT INTO image (url, isVideo, school_id) VALUES (:url, :isVideo, :schoolId)";
+                $params = [
+                    "url" => $imageName,
+                    "isVideo" => 0,
+                    "schoolId" => $schoolId
                 ];
 
                 $this->query($query, $params);
