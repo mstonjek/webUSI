@@ -155,7 +155,11 @@
             return $events;
         }
         public function getSchools(): array{
-            $query = "SELECT `school_id`, `title` FROM `school`";
+            $query = "SELECT s.*, GROUP_CONCAT(i.url) AS url 
+              FROM `school` s 
+              LEFT JOIN `image` i ON s.school_id = i.school_id 
+              GROUP BY s.school_id 
+              ORDER BY s.`title`";
             $stmt = $this->pdo->query($query);
             $schools = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $schools;

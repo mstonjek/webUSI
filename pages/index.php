@@ -41,13 +41,11 @@
         <span>Date: <?php echo $event["date"]; ?></span>
         <p><?php echo substr($event["description"], 0, 30).".."; ?></p>
         <?php
-            $imageUrls = explode(",", $event["url"]);
-            foreach ($imageUrls as $imageUrl):
+            $imageUrl = explode(",", $event["url"])[0];
                 ?>
                 <div id="image-preview">
                     <img class="preview-image" src="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/uploads/<?php echo trim($imageUrl); ?>" alt="<?php $event["title"] ?>">
                 </div>
-        <?php endforeach; ?>
         <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/event?eventId=<?php echo $event["event_id"]; ?>"><button>Celý článek</button> </a>
     </div>
 <?php endforeach; ?>
