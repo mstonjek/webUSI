@@ -143,7 +143,7 @@
         }
         public function addSchool(string $title, string $address, string $headmaster, string $web, string $description, string $logoUrl ,array $fileNames): void
         {
-            $query = "INSERT INTO event (title, address, headmaster, webUrl, description, logoUrl) VALUES (:title, :address, :headmaster, :webUrl, :description, :logoUrl)";
+            $query = "INSERT INTO school (title, address, headmaster, webUrl, description, logoUrl) VALUES (:title, :address, :headmaster, :webUrl, :description, :logoUrl)";
             $params = [
                 'title' => $title,
                 "address" => $address,
@@ -159,7 +159,7 @@
         }
         public function editSchool(int $schoolId, string $title, string $address, string $headmaster, string $web, string $description, string $logoUrl ,array $fileNames): void
         {
-            $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :web, description = :description, logoUrl = :logoUrl WHERE school_id = :schoolId";
+            $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :webUrl, description = :description, logoUrl = :logoUrl WHERE school_id = :schoolId";
             $params = [
                 'title' => $title,
                 "address" => $address,

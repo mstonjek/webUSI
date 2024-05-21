@@ -24,7 +24,10 @@ class UploadSchools
 
     public function uploadSchool(int|null $schooId, string $title, string $address, string $headmaster, string $web, string $description, $logo, $files, array|null $checkedImages): void
     {
-        array_unshift($files, $logo);
+        foreach ($logo as $key => $value) {
+
+            array_unshift($files[$key], $value);
+        }
         if ($schooId !== null) {
             $imageNames = $this->uploadImages($files);
             $this->replaceImages($checkedImages, $schooId);
@@ -34,8 +37,8 @@ class UploadSchools
             $this->database->addSchool($title, $address, $headmaster, $web, $description, $imageNames[0], array_slice($imageNames, 1));
 
         }
-        header("location: /webUSI/editSchools");
-        exit();
+        //header("location: /webUSI/editSchools");    
+        //exit();
     }
 
     private function replaceImages(array|null $checkedImages, int $schooId): void
@@ -57,14 +60,17 @@ class UploadSchools
     {
         $imageNames = [];
 
-        if (!isset($images['tmp_name']) || count(array_filter($images['tmp_name'])) === 0) {
+        if ((!isset($images['tmp_name']) || count(array_filter($images['tmp_name'])) === 0) && !isset($images[0]['tmp_name'])) {
             return ["image_default.png"];
         }
 
 
         foreach ($images['tmp_name'] as $key => $tmp_name) {
+            if(empty($tmp_name)){
+                continue;
+            }
             if (!is_uploaded_file($tmp_name)) {
-                throw new \Exception("Chyba: Soubor '{$images['name'][$key]}' nebyl nahrán.");
+                throw new \Exception("Chyba: Soubor '   {$images['name'][$key]}' nebyl nahrán."."Pole:".print_r($images, true));
             }
 
             $imageInfo = getimagesize($tmp_name);
@@ -74,6 +80,9 @@ class UploadSchools
         }
 
         foreach ($images['tmp_name'] as $key => $tmp_name) {
+            if(empty($tmp_name)){
+                continue;
+            }
             $imageName = uniqid("image_") . "." . pathinfo($images['name'][$key], PATHINFO_EXTENSION);
             $path = $_SERVER["DOCUMENT_ROOT"] . '/webUSI/uploads/' . $imageName;
 

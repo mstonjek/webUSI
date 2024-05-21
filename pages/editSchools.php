@@ -32,16 +32,9 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/webUSI/includes/headerAdmin.php");
     </style>
 
 <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/addSchool">Přidat</a>
-
 <?php foreach ($schools as $school): ?>
     <div>
         <h1><?php echo $school["title"]; ?></h1>
-            <?php
-                $imageUrl = explode(",", $school["url"])[0];
-            ?>
-                    <div id="image-preview">
-                        <img class="preview-image" src="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/uploads/<?php echo trim($imageUrl); ?>" alt="<?php $school["title"] ?>">
-                    </div>
         <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/editSchool?schoolId=<?php echo $school["school_id"]; ?>">Upravit</a>
         <hr>
     </div>

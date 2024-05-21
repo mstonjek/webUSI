@@ -31,7 +31,7 @@
         </style>
 
 
-        <form action="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/backend/UploadSchool.php" enctype="multipart/form-data" method="POST">
+        <form action="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/backend/UploadSchools.php" enctype="multipart/form-data" method="POST">
             <label for="title">Název školy</label>
             <input type="text" id="title" name="title"/>
             <label for="address">Adresa školy</label>
@@ -39,7 +39,7 @@
             <label for="headmaster">Ředitel</label>
             <input type="text" id="headmaster" name="headmaster"/>
             <label for="web">Web školy</label>
-            <input type="text" id="web">
+            <input type="text" id="web" name="web" />
             <label for="desc">Popis</label>
             <textarea name="description" id="desc" cols="30" rows="10"></textarea>
             <label for="logo-input">Logo školy</label>
@@ -50,7 +50,7 @@
             <input type="file" name="images[]" id="file-input" multiple>
             <button name="submit">Přidat</button>
         </form>
-        <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/editEvents">Zpět</a>
+        <a href="<?php $_SERVER["DOCUMENT_ROOT"] ?>/webUSI/editSchools">Zpět</a>
 
         <script>
             document.getElementById('file-input').addEventListener('change', function(event) {
