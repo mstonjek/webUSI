@@ -27,7 +27,6 @@ class UploadSchools
         foreach ($logo as $key => $value) {
             array_unshift($files[$key], $value);
         }
-        print_r($files);
         if ($schooId !== null) {
             $imageNames = $this->uploadImages($files);
             $this->replaceImages($checkedImages, $schooId);
@@ -42,9 +41,8 @@ class UploadSchools
             $this->database->addSchool($title, $address, $headmaster, $web, $description, $imageNames[0], array_slice($imageNames, 1));
 
         }
-        echo $imageNames[0];
-        //header("location: /webUSI/editSchools");    
-        //exit();
+        header("location: /webUSI/editSchools");    
+        exit();
     }
 
     private function replaceImages(array|null $checkedImages, int $schooId): void
