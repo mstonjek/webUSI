@@ -6,6 +6,11 @@
   font-family: "Open Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  transition: transform 0.5s ease;
+}
+
 a#logo {
   margin-top: 16px;
   width: 94px;
@@ -20,6 +25,7 @@ a#logo {
   background-color: #0C1844;
   display: flex;
   flex-direction: row;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 11px 30px 11px 30px;
   margin: 20px;
@@ -45,6 +51,7 @@ a#logo {
   background-color: #FF8800;
   border-radius: 13px;
   font-size: 28px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 11px 30px 11px 30px;
 }
@@ -63,6 +70,7 @@ a#logo {
 
 body {
   min-height: 130vh;
+  background-color: #FFFDF9;
 }
 body header {
   height: 110px;
@@ -119,7 +127,6 @@ body button {
   transition: 0.3s;
 }
 body button:hover {
-  -webkit-transform: scale(1.1);
   transform: scale(1.1);
   /*padding: 20px 15px;
   margin: 0 0 -2.5px -2.5px;*/
@@ -163,6 +170,7 @@ body main.index section:nth-child(2) {
   align-items: center;
   background-color: #FFFDF9;
   padding: 40px 0 50px 0;
+  height: 30%;
 }
 body main.index section:nth-child(2) > div {
   display: flex;
@@ -170,14 +178,24 @@ body main.index section:nth-child(2) > div {
   gap: 20px;
   padding: 20px;
   background-color: #FFFDF9;
+  height: 50%;
 }
 body main.index section:nth-child(2) > div div {
   background-color: #0F205F;
   padding: 20px;
   border-radius: 5px;
+  width: 50%;
+}
+body main.index section:nth-child(2) > div div div {
+  width: 100%;
+  aspect-ratio: 2/1;
 }
 body main.index section:nth-child(2) > div div img {
   border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  aspect-ratio: 2/1;
 }
 body main.index section:nth-child(2) > div div:first-child {
   border-right: rgba(0, 0, 0, 0.2588235294) 2px solid;
@@ -208,7 +226,8 @@ body main.index section:nth-child(3) {
   margin: 50px 0;
 }
 body main.index section:nth-child(3) img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-height: 60vh;
   width: 50%;
 }
@@ -227,6 +246,26 @@ body main.index section:nth-child(3) div button {
   font-weight: 700;
   padding: 5px 15px;
   font-size: 1.6rem;
+}
+body main.probehle-akce h1:first-child {
+  font-size: 3.5rem;
+  margin: 5rem 1rem 3rem 1rem;
+}
+body main.probehle-akce button {
+  font-weight: normal;
+  color: #121212;
+  background-color: #D9D9D9;
+  border-radius: 13px;
+  padding: 3px 45px;
+}
+body main.probehle-akce .carousel {
+  margin: 1rem 3rem;
+}
+body main.probehle-akce li.carouselImage {
+  display: inline;
+}
+body main.probehle-akce section:first-child {
+  margin-bottom: 3rem;
 }
 body main.uredni-deska {
   height: calc(100vh - 110px);
@@ -441,7 +480,8 @@ body main.detail-akce .obrazkyProAkci .image {
   width: 90%;
   margin: 40px;
 }
-body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
+body main.detail-akce .obrazkyProAkci .arrow1,
+body main.detail-akce .obrazkyProAkci .arrow2 {
   position: absolute;
   width: 48px;
   top: 50%;
@@ -455,6 +495,70 @@ body main.detail-akce .obrazkyProAkci .arrow2 {
 }
 body main.login {
   min-height: calc(100vh - 110px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main.login form, body main.login div, body main.login input, body main.login button {
+  margin: 10px;
+}
+body main.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0F205F;
+  border-radius: 45px;
+  padding: 100px;
+}
+body main.login form input {
+  width: 100%;
+}
+body main.login form button {
+  width: 80%;
+}
+body main.login form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main.login h1 {
+  color: #FFFDF9;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+body main.login p {
+  color: #FFFDF9;
+}
+body main.login .checkbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+body main.login .checkbox p {
+  font-size: 18px;
+}
+body main.login .checkbox input {
+  width: auto;
+}
+body main.admin-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main.admin-menu h1 {
+  color: #0C1844;
+}
+body main.admin-menu div {
+  background-color: #0C1844;
+}
+body main.admin-menu div div {
+  background-color: #FFFDF9;
 }
 body footer {
   background-color: #0C1844;
@@ -470,7 +574,6 @@ body footer .hover {
   cursor: pointer;
 }
 body footer .hover:hover {
-  -webkit-transform: scale(1.1);
   transform: scale(1.1);
   top: 17%;
   transition: 0.3s;
@@ -541,6 +644,16 @@ body footer div:nth-child(3) span.highlight {
   .back_button {
     background-color: #FF8800;
   }
+  input {
+    color: #FFFDF9 !important;
+    background-color: #7b7b7b !important;
+  }
+  ::-moz-placeholder {
+    color: #FFFDF9 !important;
+  }
+  ::placeholder {
+    color: #FFFDF9 !important;
+  }
   body {
     background-color: #0F205F;
   }
@@ -568,6 +681,9 @@ body footer div:nth-child(3) span.highlight {
   body main.index section:nth-child(2) > div > div h2,
   body main.index section:nth-child(2) > div > div p {
     color: #121212;
+  }
+  main.probehle-akce * {
+    color: #FFFDF9;
   }
   main.uredni-deska {
     background-color: #0F205F;
@@ -601,6 +717,10 @@ body footer div:nth-child(3) span.highlight {
   main.detail-akce p {
     color: #FFFDF9;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+  main.login h1, main.login p {
+    color: #0C1844 !important;
+  }
+  main.login form {
+    background-color: #FFFDF9 !important;
+  }
+}/*# sourceMappingURL=style.css.map */

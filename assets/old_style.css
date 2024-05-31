@@ -6,11 +6,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  transition: transform 0.5s ease;
-}
-
 a#logo {
   margin-top: 16px;
   width: 94px;
@@ -70,7 +65,6 @@ a#logo {
 
 body {
   min-height: 130vh;
-  background-color: #FFFDF9;
 }
 body header {
   height: 110px;
@@ -235,26 +229,6 @@ body main.index section:nth-child(3) div button {
   font-weight: 700;
   padding: 5px 15px;
   font-size: 1.6rem;
-}
-body main.probehle-akce h1:first-child {
-  font-size: 3.5rem;
-  margin: 5rem 1rem 3rem 1rem;
-}
-body main.probehle-akce button {
-  font-weight: normal;
-  color: #121212;
-  background-color: #D9D9D9;
-  border-radius: 13px;
-  padding: 3px 45px;
-}
-body main.probehle-akce .carousel {
-  margin: 1rem 3rem;
-}
-body main.probehle-akce li.carouselImage {
-  display: inline;
-}
-body main.probehle-akce section:first-child {
-  margin-bottom: 3rem;
 }
 body main.uredni-deska {
   height: calc(100vh - 110px);
@@ -469,8 +443,7 @@ body main.detail-akce .obrazkyProAkci .image {
   width: 90%;
   margin: 40px;
 }
-body main.detail-akce .obrazkyProAkci .arrow1,
-body main.detail-akce .obrazkyProAkci .arrow2 {
+body main.detail-akce .obrazkyProAkci .arrow1, body main.detail-akce .obrazkyProAkci .arrow2 {
   position: absolute;
   width: 48px;
   top: 50%;
@@ -484,70 +457,6 @@ body main.detail-akce .obrazkyProAkci .arrow2 {
 }
 body main.login {
   min-height: calc(100vh - 110px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body main.login form, body main.login div, body main.login input, body main.login button {
-  margin: 10px;
-}
-body main.login form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #0F205F;
-  border-radius: 45px;
-  padding: 100px;
-}
-body main.login form input {
-  width: 100%;
-}
-body main.login form button {
-  width: 80%;
-}
-body main.login form div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-body main.login h1 {
-  color: #FFFDF9;
-  font-size: 48px;
-  font-weight: bold;
-  text-align: center;
-}
-body main.login p {
-  color: #FFFDF9;
-}
-body main.login .checkbox {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-}
-body main.login .checkbox p {
-  font-size: 18px;
-}
-body main.login .checkbox input {
-  width: auto;
-}
-body main.admin-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-body main.admin-menu h1 {
-  color: #0C1844;
-}
-body main.admin-menu div {
-  background-color: #0C1844;
-}
-body main.admin-menu div div {
-  background-color: #FFFDF9;
 }
 body footer {
   background-color: #0C1844;
@@ -633,16 +542,6 @@ body footer div:nth-child(3) span.highlight {
   .back_button {
     background-color: #FF8800;
   }
-  input {
-    color: #FFFDF9 !important;
-    background-color: #7b7b7b !important;
-  }
-  ::-moz-placeholder {
-    color: #FFFDF9 !important;
-  }
-  ::placeholder {
-    color: #FFFDF9 !important;
-  }
   body {
     background-color: #0F205F;
   }
@@ -670,9 +569,6 @@ body footer div:nth-child(3) span.highlight {
   body main.index section:nth-child(2) > div > div h2,
   body main.index section:nth-child(2) > div > div p {
     color: #121212;
-  }
-  main.probehle-akce * {
-    color: #FFFDF9;
   }
   main.uredni-deska {
     background-color: #0F205F;
@@ -706,10 +602,4 @@ body footer div:nth-child(3) span.highlight {
   main.detail-akce p {
     color: #FFFDF9;
   }
-  main.login h1, main.login p {
-    color: #0C1844 !important;
-  }
-  main.login form {
-    background-color: #FFFDF9 !important;
-  }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=old_style.css.map */

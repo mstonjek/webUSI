@@ -7,7 +7,6 @@ $polly: #074998;
 $cobalt: #0E49B5;
 $baby: #FFFDF9;
 $gray: #7b7b7b;
-$secondGray: #D9D9D9;
 $black: #121212;
 $pageMargin: 100px;
 
@@ -16,11 +15,6 @@ $pageMargin: 100px;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-    transition: transform 0.5s ease;
 }
 
 a#logo {
@@ -81,7 +75,6 @@ a#logo {
 
 body {
     min-height: 130vh;
-    background-color: $baby;
 
     header {
         height: 110px;
@@ -198,7 +191,6 @@ body {
             align-items: center;
             background-color: $baby;
             padding: 40px 0 50px 0;
-            height: 30%;
 
             &>div {
                 display: flex;
@@ -206,22 +198,14 @@ body {
                 gap: 20px;
                 padding: 20px;
                 background-color: $baby;
-                height: 50%;
 
                 div {
                     background-color: $pennLight;
                     padding: 20px;
                     border-radius: 5px;
-                    width: 50%;
-                    div{
-                        width: 100%;
-                        aspect-ratio: 2 / 1;
-                    }
+
                     img {
                         border-radius: 5px;
-                        object-fit: cover;
-                        width: 100%;
-                        aspect-ratio: 2 / 1;
                     }
 
                     &:first-child {
@@ -286,35 +270,6 @@ body {
                 }
             }
         }
-    }
-
-    main.probehle-akce {
-        h1:first-child {
-            font-size: 3.5rem;
-            margin: 5rem 1rem 3rem 1rem;
-        }
-
-        button {
-            font-weight: normal;
-            color: $black;
-            background-color: $secondGray;
-            border-radius: 13px;
-            padding: 3px 45px;
-
-        }
-
-        .carousel {
-            margin: 1rem 3rem;
-        }
-
-        li.carouselImage {
-            display: inline;
-        }
-
-        section:first-child {
-            margin-bottom: 3rem;
-        }
-
     }
 
     main.uredni-deska {
@@ -586,9 +541,7 @@ body {
                 width: 90%;
                 margin: 40px;
             }
-
-            .arrow1,
-            .arrow2 {
+            .arrow1, .arrow2 {
                 position: absolute;
                 width: 48px;
                 top: 50%;
@@ -597,90 +550,14 @@ body {
             .arrow1 {
                 left: 7%;
             }
-
             .arrow2 {
                 rotate: 180deg;
                 right: 7%;
             }
         }
     }
-
     main.login {
         min-height: calc(100vh - 110px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        form, div, input, button {
-            margin: 10px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: $pennLight;
-            border-radius: 45px;
-            padding: $pageMargin;
-
-            input {
-                width: 100%;
-            }
-            button {
-                width: 80%;
-            }
-
-            div {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-
-        h1 {
-            color: $baby;
-            font-size: 48px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        p {
-            color: $baby;
-        }
-
-        .checkbox {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-end;
-            p {
-                font-size: 18px;
-            }
-            input {
-                width: auto;
-            }
-        }
-    }
-    main.admin-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        h1 {
-            color: $pennDark;
-        }
-
-        div {
-            background-color: $pennDark;
-
-            div {
-                background-color: $baby;
-            }
-        }
     }
 
     footer {
@@ -789,14 +666,6 @@ body {
         background-color: $darkOrange;
     }
 
-    input {
-        color: $baby !important;
-        background-color: $gray !important;
-    }
-    ::placeholder {
-        color: $baby !important;
-    }
-
     body {
         background-color: $pennLight;
 
@@ -838,12 +707,6 @@ body {
                     }
                 }
             }
-        }
-    }
-
-    main.probehle-akce {
-        * {
-            color: $baby;
         }
     }
 
@@ -892,15 +755,6 @@ body {
         h1,
         p {
             color: $baby;
-        }
-    }
-
-    main.login {
-        h1, p {
-            color: $pennDark !important;
-        }
-        form {
-            background-color: $baby !important;
         }
     }
 }
