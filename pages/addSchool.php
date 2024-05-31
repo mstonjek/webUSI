@@ -44,7 +44,7 @@
             <textarea name="description" id="desc" cols="30" rows="10"></textarea>
             <label for="logo-input">Logo školy</label>
             <div id="logo-preview"></div>
-            <input type="file" name="logo" id="logo-input">
+            <input type="file" name="logo" id="logo-input" required>
             <label for="file-input">Obrázky</label>
             <div id="image-preview"></div>
             <input type="file" name="images[]" id="file-input" multiple>

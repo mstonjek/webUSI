@@ -157,18 +157,31 @@
 
             $this->uploadSchoolImages($fileNames, $schoolId, true);
         }
-        public function editSchool(int $schoolId, string $title, string $address, string $headmaster, string $web, string $description, string $logoUrl ,array $fileNames): void
+        public function editSchool(int $schoolId, string $title, string $address, string $headmaster, string $web, string $description, string | null $logoUrl ,array $fileNames): void
         {
-            $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :webUrl, description = :description, logoUrl = :logoUrl WHERE school_id = :schoolId";
-            $params = [
-                'title' => $title,
-                "address" => $address,
-                'headmaster' => $headmaster,
-                'webUrl' => $web,
-                'description' => $description,
-                'logoUrl' => $logoUrl,
-                'schoolId' => $schoolId
-            ];
+            if($logoUrl == null || $logoUrl == "image_default.png"){
+                $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :webUrl, description = :description WHERE school_id = :schoolId";
+                $params = [
+                    'title' => $title,
+                    "address" => $address,
+                    'headmaster' => $headmaster,
+                    'webUrl' => $web,
+                    'description' => $description,
+                    'schoolId' => $schoolId
+                ];
+            }
+            else{
+                $query = "UPDATE school SET title = :title, address = :address, headmaster = :headmaster, webUrl = :webUrl, description = :description, logoUrl = :logoUrl WHERE school_id = :schoolId";
+                $params = [
+                    'title' => $title,
+                    "address" => $address,
+                    'headmaster' => $headmaster,
+                    'webUrl' => $web,
+                    'description' => $description,
+                    'logoUrl' => $logoUrl,
+                    'schoolId' => $schoolId
+                ];
+            }
             $stmt = $this->query($query, $params);
 
             $this->uploadSchoolImages($fileNames, $schoolId, false);
