@@ -20,15 +20,21 @@ Následující kroky vysvětlují, jak spustit tento projekt na vašem lokální
 
 - Spusťte XAMPP Control Panel a klikněte na tlačítko `Start` vedle `Apache` a `MySQL`. To spustí Apache HTTP server a MySQL databázový server na vašem počítači.
 
-### 4. Import databáze - Zatím ve vývoji
+### 4. Import databáze ze souboru
 
 - Otevřete webový prohlížeč a přejděte na adresu `http://localhost/phpmyadmin`.
 - V sekci `Databases` vytvořte novou databázi s názvem `usi`.
-- Klikněte na vytvořenou databázi a zvolte zálohu.
-- Načtěte databázový soubor z adresáře projektu `usi_database.sql` (pokud je k dispozici) nebo importujte strukturu databáze z jiného zdroje.
+- Následně klikněte na tlačítko importu.
+- Načtěte databázový soubor z adresáře projektu `sql/usi.sql`.
 
-### 5. Spuštění webové stránky
+### 5. Nastavení oprávnění pro složku uploads
 
-- Otevřete webový prohlížeč a přejděte na adresu `http://localhost/webUSI/pages`.
+- Pokud se při pokusu o nahrávání obrázků škol nebo eventů setkáte s chybou ohledně `nedostatečných oprávnění`, je potřeba nastavit práva tímto příkazem:
+- Spusťte v root adresáři: 
+```chmod -R 777 /uploads```
+
+### 6. Spuštění webové stránky
+
+- Otevřete webový prohlížeč a přejděte na adresu `http://localhost/webUSI`.
 - Měli byste vidět domovskou stránku webové stránky UŠI.
-- Prozkoumejte různé části webu, včetně členů, aktualit, akcí
+- Prozkoumejte různé části webu, včetně členských škol, aktualit a akcí
